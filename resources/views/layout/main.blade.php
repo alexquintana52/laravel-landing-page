@@ -26,16 +26,19 @@
                         <a class="nav-link ff-jetbrains text-white" href="{{ route('home') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link ff-jetbrains text-white" href="{{ route('about') }}">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link ff-jetbrains text-white" href="{{ route('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ route('notices') }}">Noticias</a>
                     </li>
                 </ul>
-                <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ route('home') }}">
+                <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ route('auth.login') }}">
                     Iniciar Sesión
                 </a>
-                <a class="btn-ennoia-outline ms-0 ms-lg-2 mt-3 mt-lg-0" href="{{ route('home') }}">
+                <a class="btn-ennoia-outline ms-0 ms-lg-2 mt-3 mt-lg-0" href="{{ route('auth.register') }}">
                     Registrarse
                 </a>
             </div>
