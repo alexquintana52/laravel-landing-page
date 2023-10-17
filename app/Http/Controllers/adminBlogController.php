@@ -33,7 +33,7 @@ class adminBlogController extends Controller
         $request -> validate( Blog::$reglas, Blog::$mensajesdeError );
 
         if($request->hasFile('img')){
-            $data['img'] = $request->file('img')->store('imagBlog');
+            $data['img'] = $request->file('img')->store('imagagenBlog');
         }
 
 

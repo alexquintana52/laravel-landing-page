@@ -27,11 +27,12 @@ class adminNoticiasController extends Controller
 
         $data = $request->except('_token');
 
+        $request -> validate( Noticia::$reglas, Noticia::$mensajesdeError);
+
         if($request->hasFile('img')){
-            $request->file('img')->store('imgNoticas');
+            $data['img'] = $request->file('img')->store('imagenNoticias');
         }
 
-        $request -> validate( Noticia::$reglas, Noticia::$mensajesdeError);
         //dd($data);
         Noticia::create($data);
 
