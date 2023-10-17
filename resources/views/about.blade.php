@@ -8,9 +8,9 @@
   <div class="container">
     <div class="row justify-content-center">
 			<div class="col-12 col-lg-8">
-				<h1 class="fw-bold m-0">Sobre <span class="text-ennoia ff-jetbrains">Nosotros</span></h1>
+				<h1 class="fw-bold m-0 text-ennoia ff-jetbrains">Sobre Nosotros</span></h1>
 				<p class="mt-4">Te invitamos a conocer quiénes somos, nuestra pasión por la tecnología y nuestra misión de brindarte una experiencia educativa excepcional.  Descubre nuestra historia, nuestros valores y nuestro compromiso contigo mientras te sumerges en la tecnología con nosotros.</p>
-				<p class="mb-4"><strong class="text-ennoia">¡Es un placer tenerte a bordo en nuestro viaje de aprendizaje tecnológico!</strong></p>
+				<p class="mb-4"><strong>¡Es un placer tenerte a bordo en nuestro viaje de aprendizaje tecnológico!</strong></p>
 			</div>
 		</div>
   </div>

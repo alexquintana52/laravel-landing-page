@@ -8,15 +8,23 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Corremos los seeders
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(Categorias_Blog_Seeder::class);
+        $this->call(BlogSeeder::class);
+        $this->call(Categorias_Noticias_Seeder::class);
+        $this->call(NoticiasSeeder::class);
+        $this->call(UsersSeeder::class);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        //$this->call(serviciosSeeder::class);
+
+        /*
+        corremos los seeders con el comando:
+        *php artisan db:seed
+
+
+        */
     }
 }

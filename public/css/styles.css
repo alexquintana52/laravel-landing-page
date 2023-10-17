@@ -85,6 +85,11 @@ h5,h6 {
   background-color: var(--clr-bg-dark-light);
 }
 
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--clr-primary);
+}
+
 .btn-ennoia-outline {
   display: inline-block;
   font-family: var(--ff-jetbrains);
@@ -130,6 +135,26 @@ h5,h6 {
   background-color: var(--clr-bg-dark-light);
   color: var(--clr-light-100);
 }
+
+.card-text-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+}
+
+
 
 /*======| Navbar |====== */
 
@@ -216,7 +241,6 @@ h5,h6 {
 }
 
 
-
 /*======| Login |====== */
 
 .login-section {
@@ -251,6 +275,44 @@ h5,h6 {
 .input-ennoia:focus {
   background-color: transparent;
   color: var(--clr-light-300);
+}
+
+.input-admin {
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 12px 25px;
+  border: 2px solid var(--clr-primary);
+  background-color: transparent;
+  color: var(--clr-light-1000);
+}
+
+.input-admin::placeholder {
+  color: var(--clr-light-100);
+}
+
+.input-admin:focus {
+  background-color: transparent;
+  color: var(--clr-light-100);
+}
+
+.text-area-admin {
+  height: 320px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 12px 25px;
+  border: 2px solid var(--clr-primary);
+  background-color: transparent;
+  color: var(--clr-light-1000);
+  resize: none;
+}
+
+.text-area-admin::placeholder {
+  color: var(--clr-light-100);
+}
+
+.text-area-admin:focus {
+  background-color: transparent;
+  color: var(--clr-light-100);
 }
 
 .input-btn-ennoia {
