@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\Blog
@@ -11,8 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int|null $autor_id
  * @property string $titulo
+ * @property int $categoria_id
  * @property string $noticia
- * @property string $categoria
  * @property string|null $img
  * @property string|null $descripcion_img
  * @property string $fecha
@@ -31,6 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereNoticia($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTitulo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUpdatedAt($value)
+ * @property-read \App\Models\Categoria_blog $categoria_blog
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereCategoriaId($value)
  * @mixin \Eloquent
  */
 class Blog extends Model
@@ -44,7 +47,7 @@ class Blog extends Model
     protected $fillable = [
         'titulo',
         'noticia',
-        'categoria',
+        'categoria_id',
         'img',
         'descripcion_img',
         'fecha'
@@ -56,7 +59,7 @@ class Blog extends Model
     public static $reglas = [
         'titulo' => 'required|min : 5|max : 50',
         'noticia' => 'required | min : 5 | max : 2560',
-        'categoria' => 'required | min : 5 | max : 50',
+        'categoria_id' => 'required ',
         'descripcion_img' => 'required | min : 5 | max : 50',
         'fecha' => 'required '
     ];
@@ -71,14 +74,18 @@ class Blog extends Model
         'noticia.required' => 'El campo noticia es obligatorio',
         'noticia.min' => 'El campo noticia debe tener al menos 5 caracteres',
         'noticia.max' => 'El campo noticia debe tener como maximo 2560 caracteres',
-        'categoria.required' => 'El campo categoria es obligatorio',
-        'categoria.min' => 'El campo categoria debe tener al menos 5 caracteres',
-        'categoria.max' => 'El campo categoria debe tener como maximo 50 caracteres',
+        'categoria_id.required' => 'El campo categoria es obligatorio',
         'descripcion_img.required' => 'El campo descripcion de la imagen es obligatorio',
         'descripcion_img.min' => 'El campo descripcion de la imagen debe tener al menos 5 caracteres',
         'descripcion_img.max' => 'El campo descripcion de la imagen debe tener como maximo 50 caracteres',
         'fecha.required' => 'El campo fecha es obligatorio'
 
     ];
+
+    public function categoria_blog():BelongsTo
+    {
+        return $this->belongsTo(Categoria_blog::class, 'categoria_id', 'categoria_id');
+    }
+
 
 }

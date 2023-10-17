@@ -45,7 +45,7 @@
                         <div class="card-body text-left">
                             <h2 class="h4 py-2 card-title fw-bold text-ennoia ">{{$posteo->titulo }}</h2>
                             <div class="d-flex justify-content-between">
-                                <small class="text-success"> {{$posteo->categoria }}</small>
+                                <small class="text-success"> {{$posteo->categoria_blog->nombre}}</small>
                                 <small class="text-success">{{$posteo->fecha}}</small>
                             </div>
                             <p class="card-text">{{$posteo->noticia }}</p>

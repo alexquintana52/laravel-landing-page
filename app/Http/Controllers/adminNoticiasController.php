@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria_noticias;
 use Illuminate\Http\Request;
 use App\Models\Noticia;
+use Illuminate\Support\Facades\Storage;
 
 class adminNoticiasController extends Controller
 {
     public function admin(){
 
-        $noticiasPost = Noticia::all();
-
         return view('admin.adminNoticias', [
-            'noticiasPost' => $noticiasPost
+            'noticiasPost' => Noticia::with('categoria_noticias')->get()
         ]);
     }
 
 
     public function createNoti(){
-        return view('admin.crud_noticias.create');
+        return view('admin.crud_noticias.create',[
+            'categoria_noticias' => Categoria_noticias::all()
+        ]);
     }
 
 
@@ -49,6 +51,9 @@ class adminNoticiasController extends Controller
     public function processDeleteNoti(int $id){
         $noti = Noticia::findOrFail($id);
         $noti->delete();
+        if($noti->img && Storage::has($noti->img) ){
+            Storage::delete($noti->img);
+        }
 
         return redirect('/admin/noticias')
         ->with('status.message', 'La noticia <b>'. e($noti->titulo) .'</b> fue borrada con éxito');
@@ -56,16 +61,25 @@ class adminNoticiasController extends Controller
 
     public function editNoti(int $id){
         return view('admin.crud_noticias.update',[
-            'noticiasPost' => Noticia::findOrFail($id)
+            'noticiasPost' => Noticia::findOrFail($id),
+            'categoria_noticias' => Categoria_noticias::all()
         ]);
     }
 
     public function processEditNoti(Request $request, int $id){
-        $noti = Noticia::findOrFail($id);
 
+        $data = $request->except('_token');
+        $noti = Noticia::findOrFail($id);
         $request -> validate( Noticia::$reglas, Noticia::$mensajesdeError);
 
-        $noti->update($request->except('_token'));
+        if($noti->img && Storage::has($noti->img) ){
+            Storage::delete($noti->img);
+        }
+        if($request->hasFile('img')){
+            $data['img'] = $request->file('img')->store('imagenNoticias');
+        }
+
+        $noti->update($data);
 
         return redirect('/admin/noticias')
         ->with('status.message', 'La noticia <b>'. e($noti->titulo) .'</b> fue editada con éxito');

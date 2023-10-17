@@ -1,11 +1,13 @@
 <?php
+use app\model\Categoria_blog;
+use app\model\Blog;
+use illuminate\database\eloquent\Collection;
 /**
  * @var \iluminate\Support\Collection $errors
 */
 /**
  * @var Blog $blogPost
  */
-use app\model\Blog;
 ?>
 @extends('layout.main')
 
@@ -48,15 +50,24 @@ use app\model\Blog;
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="categoria" class="form-label">Categoría</label>
-                <input type="text" id="categoria" name="categoria" class="form-control @error('categoria') is-invalid @enderror"
-                @error('categoria')
+                <label for="categoria_id" class="form-label">Categoría</label>
+                <select type="text" id="categoria_id" name="categoria_id" class="form-control @error('categoria_id') is-invalid @enderror"
+                @error('categoria_id')
                     aria-describedby="error-title"
                     aria-invalid="true"
                 @enderror
-                value="{{old('categoria', $blogPost->categoria)}}"
+                value="{{old('categoria_id')}}"
                 >
-                    @error('categoria')
+                @foreach ($categoria_blog as $categoria)
+                    <option value="{{$categoria->categoria_id}}"
+
+                    @selected(old('categoria_id', $blogPost->categoria_id ) == $categoria->categoria_id)
+                    >
+                    {{$categoria->nombre}}
+                    </option>
+                @endforeach
+                </select>
+                    @error('categoria_id')
                     <p class="text-danger">
                         {{$message}}
                     </p>
@@ -86,7 +97,7 @@ use app\model\Blog;
                     aria-describedby="error-title"
                     aria-invalid="true"
                 @enderror
-                value="{{old('descripcion_img')}}"
+                value="{{old('descripcion_img', $blogPost->descripcion_img)}}"
                 >
                 @error('descripcion_img')
                     <p class="text-danger">

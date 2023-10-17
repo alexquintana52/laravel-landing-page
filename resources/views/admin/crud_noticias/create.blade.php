@@ -1,11 +1,12 @@
 <?php
+use app\model\Noticias;
+use app\model\Categoria_noticias;
+use illuminate\database\eloquent\Collection;
 /**
  * @var \iluminate\Support\Collection $errors
-*/
-/**
- * @var Noticias $noticiasPost
+ * @var Catalogo_noticias | Collection $catalogo_noticias
  */
-use app\model\Noticias;
+
 ?>
 @extends('layout.main')
 
@@ -68,20 +69,29 @@ use app\model\Noticias;
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="categoria" class="form-label">Categoría</label>
-                <input type="text" id="categoria" name="categoria"
-                class="form-control @error('categoria') is-invalid @enderror"
-                @error('categoria')
+                <label for="categoria_id" class="form-label">Categoría</label>
+                <select id="categoria_id" name="categoria_id" class="form-control @error('categoria_id') is-invalid @enderror"
+                @error('categoria_id')
                     aria-describedby="error-title"
                     aria-invalid="true"
                 @enderror
-                value="{{old('categoria')}}"
+                value="{{old('categoria_id')}}"
                 >
-                @error('categoria')
+                @foreach ($categoria_noticias as $categoria)
+                    <option value="{{$categoria->categoria_id}}"
+
+                    @selected(old('categoria_id') == $categoria->categoria_id)
+                        >
+                    {{$categoria->nombre}}
+                    </option>
+                @endforeach
+                </select>
+                    @error('categoria_id')
                     <p class="text-danger">
                         {{$message}}
                     </p>
                 @enderror
+
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Portada</label>

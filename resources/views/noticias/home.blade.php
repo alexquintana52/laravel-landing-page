@@ -20,8 +20,8 @@
                         <img src="{{url('img/home-bg-img.png')}}" class="rounded-3 card-img-top" alt="...">
                         <div class="card-body text-left">
                             <h2 class="h4 py-2 card-title fw-bold text-ennoia">{{$posteo->titulo}}</h2>
-                            <div class="d-flex justify-contnt-between">
-                                <small class="text-success"> {{$posteo->categoria}}</small>
+                            <div class="d-flex justify-content-between">
+                                <small class="text-success"> {{$posteo->categoria_noticias->nombre}}</small>
                                 <small>{{$posteo->fecha}}</small>
                             </div>
                             <p class="card-text">{{$posteo->noticia }}</p>

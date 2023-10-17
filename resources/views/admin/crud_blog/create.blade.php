@@ -1,11 +1,13 @@
 <?php
+use app\model\Blog;
+use app\model\Catalogo_blog;
+use illuminate\database\eloquent\Collection;
 /**
  * @var \iluminate\Support\Collection $errors
-*/
-/**
  * @var Blog $blogPost
+ * @var Catalogo_blog $catalogo_blog
  */
-use app\model\Blog;
+
 ?>
 @extends('layout.main')
 
@@ -48,15 +50,24 @@ use app\model\Blog;
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="categoria" class="form-label">Categoría</label>
-                <input type="text" id="categoria" name="categoria" class="form-control @error('categoria') is-invalid @enderror"
-                @error('categoria')
+                <label for="categoria_id" class="form-label">Categoría</label>
+                <select type="text" id="categoria_id" name="categoria_id" class="form-control @error('categoria_id') is-invalid @enderror"
+                @error('categoria_id')
                     aria-describedby="error-title"
                     aria-invalid="true"
                 @enderror
-                value="{{old('categoria')}}"
+                value="{{old('categoria_id')}}"
                 >
-                    @error('categoria')
+                @foreach ($categoria_blog as $categoria)
+                    <option value="{{$categoria->categoria_id}}"
+
+                    @selected(old('categoria_id') == $categoria->categoria_id)
+                        >
+                    {{$categoria->nombre}}
+                    </option>
+                @endforeach
+                </select>
+                    @error('categoria_id')
                     <p class="text-danger">
                         {{$message}}
                     </p>

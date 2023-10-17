@@ -9,10 +9,9 @@ use App\Models\Noticia;
 class noticiasController extends Controller
 {
     public function index(){
-        $noticiasPost = Noticia::all();
 
         return view('noticias.home', [
-            'noticiasPost' => $noticiasPost
+            'noticiasPost' => Noticia::with('categoria_noticias')->get()
         ]);
     }
         public function show(int $id){

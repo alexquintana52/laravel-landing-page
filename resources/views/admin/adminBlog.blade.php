@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{$posteo->titulo}}</td>
                     <td>{{$posteo->noticia}}</td>
-                    <td>{{$posteo->categoria}}</td>
+                    <td>{{$posteo->categoria_blog->nombre }}</td>
                     <td>{{$posteo->fecha}}</td>
                     <td >
                         <div class="d-flex gap-2">

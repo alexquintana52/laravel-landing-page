@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('titulo', 256 );
             $table->string('noticia', 2560);
             $table->string('funcionalidades', 256)->nullable();
-            $table->string('categoria', 256);
             $table->string('img', 512)->nullable();
             $table->string('descripcion_img', 256)->nullable();
             $table->date('fecha');

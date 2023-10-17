@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\Noticia
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $titulo
  * @property string $noticia
  * @property string|null $funcionalidades
- * @property string $categoria
+ * @property int $categoria_id
  * @property string|null $img
  * @property string|null $descripcion_img
  * @property string $fecha
@@ -31,6 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Noticia whereNoticia($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Noticia whereTitulo($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Noticia whereUpdatedAt($value)
+ * @property-read \App\Models\Categoria_noticias $categoria_noticias
+ * @method static \Illuminate\Database\Eloquent\Builder|Noticia whereCategoriaId($value)
  * @mixin \Eloquent
  */
 class Noticia extends Model
@@ -45,7 +48,7 @@ class Noticia extends Model
         'titulo',
         'noticia',
         'funcionalidades',
-        'categoria',
+        'categoria_id',
         'img',
         'descripcion_img',
         'fecha'
@@ -58,7 +61,7 @@ class Noticia extends Model
         'titulo' => 'required|min : 5|max : 50',
         'noticia' => 'required | min : 5 | max : 2560',
         'funcionalidades' => 'required | min : 5 | max : 2560',
-        'categoria' => 'required | min : 5 | max : 50',
+        'categoria_id' => 'required ',
         'descripcion_img' => 'required | min : 5 | max : 50',
         'fecha' => 'required '
     ];
@@ -76,14 +79,15 @@ class Noticia extends Model
         'funcionalidades.required' => 'El campo funcionalidades es obligatorio',
         'funcionalidades.min' => 'El campo funcionalidades debe tener al menos 5 caracteres',
         'funcionalidades.max' => 'El campo funcionalidades debe tener como maximo 2560 caracteres',
-        'categoria.required' => 'El campo categoria es obligatorio',
-        'categoria.min' => 'El campo categoria debe tener al menos 5 caracteres',
-        'categoria.max' => 'El campo categoria debe tener como maximo 50 caracteres',
+        'categoria_id.required' => 'El campo categoria es obligatorio',
         'descripcion_img.required' => 'El campo descripcion_img es obligatorio',
         'descripcion_img.min' => 'El campo descripcion_img debe tener al menos 5 caracteres',
         'descripcion_img.max' => 'El campo descripcion_img debe tener como maximo 50 caracteres',
         'fecha.required' => 'El campo fecha es obligatorio'
     ];
 
-
+    public function categoria_noticias():BelongsTo
+    {
+        return $this->belongsTo(Categoria_noticias::class, 'categoria_id', 'categoria_id');
+    }
 }

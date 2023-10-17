@@ -11,10 +11,9 @@ class blogController extends Controller
 
     public function index(){
 
-        $blogPost = Blog::all();
 
-        return view('blog.home', [
-            'blogPost' => $blogPost
+        return view('blog.home',[
+            'blogPost' => Blog::with('categoria_blog')->get()
         ]);
     }
 

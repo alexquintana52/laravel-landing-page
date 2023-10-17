@@ -16,10 +16,9 @@ class BlogSeeder extends Seeder
         DB::table('blog')->insert([
             [
                 'id'=>1,
-                'autor_id'=>1,
                 'titulo'=>'Desarrollo de software a medida',
                 'noticia'=>'Ennoia es una empresa de desarrollo de software que se especializa en el desarrollo de aplicaciones web y móviles, así como en el desarrollo de software a medida. Nuestro equipo de desarrolladores de software está formado por profesionales con más de 10 años de experiencia en el sector. Nuestro objetivo es ayudar a las empresas a mejorar sus procesos de negocio mediante el desarrollo de software a medida. Nuestro equipo de desarrolladores de software está formado por profesionales con más de 10 años de experiencia en el sector. Nuestro objetivo es ayudar a las empresas a mejorar sus procesos de negocio mediante el desarrollo de software a medida.',
-                'categoria'=>'Desarrollo de software',
+                'categoria_id'=>'1',
                 'img'=>null,
                 'descripcion_img'=>'una_imagen',
                 'fecha'=>'2023-10-01',
@@ -28,10 +27,9 @@ class BlogSeeder extends Seeder
             ],
             [
                 'id'=>2,
-                'autor_id'=>1,
                 'titulo'=>'Desarrollo de software a medida',
                 'noticia'=>'Ennoia es una empresa de desarrollo de software que se especializa en el desarrollo de aplicaciones web y móviles, así como en el desarrollo de software a medida. Nuestro equipo de desarrolladores de software está formado por profesionales con más de 10 años de experiencia en el sector. Nuestro objetivo es ayudar a las empresas a mejorar sus procesos de negocio mediante el desarrollo de software a medida. Nuestro equipo de desarrolladores de software está formado por profesionales con más de 10 años de experiencia en el sector. Nuestro objetivo es ayudar a las empresas a mejorar sus procesos de negocio mediante el desarrollo de software a medida.',
-                'categoria'=>'Desarrollo de software',
+                'categoria_id'=>'1',
                 'img'=>null,
                 'descripcion_img'=>'una_imagen',
                 'fecha'=>'2023-10-01',
@@ -40,10 +38,9 @@ class BlogSeeder extends Seeder
             ],
             [
                 'id'=>3,
-                'autor_id'=>1,
                 'titulo'=>'Desarrollo de software a medida',
                 'noticia'=>'Ennoia es una empresa de desarrollo de software que se especializa en el desarrollo de aplicaciones web y móviles, así como en el desarrollo de software a medida. Nuestro equipo de desarrolladores de software está formado por profesionales con más de 10 años de experiencia en el sector. Nuestro objetivo es ayudar a las empresas a mejorar sus procesos de negocio mediante el desarrollo de software a medida. Nuestro equipo de desarrolladores de software está formado por profesionales con más de 10 años de experiencia en el sector. Nuestro objetivo es ayudar a las empresas a mejorar sus procesos de negocio mediante el desarrollo de software a medida.',
-                'categoria'=>'Desarrollo de software',
+                'categoria_id'=>'1',
                 'img'=>null,
                 'descripcion_img'=>'una_imagen',
                 'fecha'=>'2023-10-01',
