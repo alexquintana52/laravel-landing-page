@@ -12,7 +12,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ url('/img/logo/ennoia-right-white.svg') }}" width="120" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -23,26 +23,59 @@
             <div class="collapse navbar-collapse text-center justify-content-center align-items-center pb-3 pb-lg-0" id="navbarSupportedContent">
                 <ul class="navbar-nav pt-4 py-lg-0 mb-lg-0 mx-auto ms-lg-5">
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains text-white" href="{{ route('home') }}">Inicio</a>
+                        <a class="nav-link ff-jetbrains text-white" href="{{ url('/') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains text-white" href="{{ route('blog') }}">Blog</a>
+                        <a class="nav-link ff-jetbrains text-white" href="{{ url('/nosotros') }}">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ route('notices') }}">Noticias</a>
+                        <a class="nav-link ff-jetbrains text-white" href="{{ url('/blog') }}">Blog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
+                    </li>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle ff-jetbrains text-white" href="#" role="button" data-bs-toggle="dropdown" >
+                                Administración
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/blog')}}">Admin Blog</a></li>
+                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/noticias')}}">Admin Noticias</a></li>
+                            </ul>
+                        </li>
+                    @endauth
                 </ul>
-                <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ route('home') }}">
-                    Iniciar Sesión
-                </a>
-                <a class="btn-ennoia-outline ms-0 ms-lg-2 mt-3 mt-lg-0" href="{{ route('home') }}">
-                    Registrarse
-                </a>
+                @auth
+                    <div class="nav-item">
+                        <form action="{{ url('/cerrar-sesion')}}" method="POST">
+                            @csrf
+                            <button class="btn btn-ennoia-outline me-0 me-lg-2">
+                                Cerrar Sesión
+                            </button>
+                        </form>
+                    </div>
+                @else
+                    <div>
+                        <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ url('/iniciar-sesion')}}">
+                        Iniciar Sesión
+                        </a>
+                    </div>
+                @endauth
             </div>
         </div>
     </nav>
 
     <main>
+        @if (\Session::has('status.message'))
+            <div class="container">
+                <div class="alert alert-success">
+                    {!! \Session::get('status.message') !!}
+                </div>
+            </div>
+
+        @endif
+
         @yield('content')
     </main>
 
@@ -52,6 +85,6 @@
         </div>
     </footer>
 
-    <script src="{{ url('js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>
