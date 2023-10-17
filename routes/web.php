@@ -90,7 +90,7 @@ Route::get('/noticias/{id}',
 )->whereNumber('id');
 
 
-//!adminNoticiasController se encarga de las vistas del adminNoticias
+//
 Route::get('/admin/noticias',
     [\App\Http\Controllers\adminNoticiasController::class, 'admin']
 )->middleware('auth');

@@ -37,6 +37,7 @@
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/nosotros')}}">Nosotros</a>
                     </li>
 
+
                     @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" >
@@ -99,6 +100,6 @@
         </div>
     </footer>
 
-    <script src="{{ url('js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>
