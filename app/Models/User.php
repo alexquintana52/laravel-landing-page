@@ -71,4 +71,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public static $reglas = [
+        'email' => 'required|email',
+        'password' => 'required|max : 50',
+    ];
+
+    public static $mensajes = [
+        'email.required' => 'El campo email es obligatorio',
+        'email.email' => 'El campo email debe ser un email valido',
+        'password.required' => 'El campo password es obligatorio',
+        'password.max' => 'El campo password debe tener como maximo 50 caracteres',
+    ];
 }

@@ -31,6 +31,7 @@
                     <td>{{$posteo->categoria_noticias->nombre }}</td>
                     <td>{{$posteo->fecha}}</td>
                     <td >
+
                         <div class="d-flex gap-2">
                             <a href="{{ url('/noticias/'. $posteo->id)}}" class="btn btn-small btn-primary" target="_blank">ver</a>
                             <a href="{{ url('admin/noticias/'. $posteo->id .'/editar')}}" class="btn btn-small btn-warning">Editar</a>

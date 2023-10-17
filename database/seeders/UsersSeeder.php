@@ -24,14 +24,22 @@ class UsersSeeder extends Seeder
             ],
             [
                 'id'=>2,
-                'name'=>'pepito',
-                'email'=>'pepito@gmail.com',
-                'password'=>bcrypt('pepito'),
+                'name'=>'Juan',
+                'email'=>'juan@gmail.com',
+                'password'=>bcrypt('juanlopez'),
                 'created_at'=>now(),
                 'updated_at'=>now()
             ],
             [
                 'id'=>3,
+                'name'=>'Alex',
+                'email'=>'alex@gmail.com',
+                'password'=>bcrypt('alexquintana'),
+                'created_at'=>now(),
+                'updated_at'=>now()
+            ],
+            [
+                'id'=>4,
                 'name'=>'sara za',
                 'email'=>'saraza@gmail.com',
                 'password'=>bcrypt('saraza'),

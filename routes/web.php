@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-//Home controller se encarga de las vistas del home y about
+//!homeController se encarga de las vistas del home y about
 Route::get('/',
     [\App\Http\Controllers\HomeController::class, 'index']
 );
@@ -25,9 +25,20 @@ Route::get('/nosotros',
 );
 
 
+//!sessionContoller se encarga de las vistas de login y register
+Route::get('/iniciar-sesion',
+    [\App\Http\Controllers\sessionController::class, 'formlogin']
+);
+Route::post('/iniciar-sesion',
+    [\App\Http\Controllers\sessionController::class, 'processlogin']
+);
+Route::post('/cerrar-sesion',
+    [\App\Http\Controllers\sessionController::class, 'processlogout']
+)->middleware('auth');
 
 
-//Blog controller se encarga de las vistas del blog
+
+//!blogController se encarga de las vistas del blog
 Route::get('/blog',
     [\App\Http\Controllers\blogController::class, 'index']
 );
@@ -36,37 +47,41 @@ Route::get('/blog/{id}',
 )->whereNumber('id');
 
 
-
+//!adminBlogController se encarga de las vistas del adminBlog
 Route::get('/admin/blog',
     [\App\Http\Controllers\adminBlogController::class, 'admin']
-);
+)->middleware('auth');
 Route::get('/admin/blog/nuevaEntrada',
     [\App\Http\Controllers\adminBlogController::class, 'createPost']
-);
+)->middleware('auth');
 Route::post('/admin/blog/nuevaEntrada',
     [\App\Http\Controllers\adminBlogController::class, 'processPost']
-);
+)->middleware('auth');
 
 Route::get('admin/blog/{id}/borrar',
     [\App\Http\Controllers\adminBlogController::class, 'deletePost']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 
 Route::post('admin/blog/{id}/borrar',
     [\App\Http\Controllers\adminBlogController::class, 'processDeletePost']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 
 route::get('/admin/blog/{id}/editar',
     [\App\Http\Controllers\adminBlogController::class, 'editPost']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 route::post('/admin/blog/{id}/editar',
     [\App\Http\Controllers\adminBlogController::class, 'processEditPost']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 
 
 
 
 
-//Noticias controller se encarga de las vistas de noticias
+//!noticiasController se encarga de las vistas de noticias
 Route::get('/noticias',
     [\App\Http\Controllers\noticiasController::class, 'index']
 );
@@ -75,28 +90,32 @@ Route::get('/noticias/{id}',
 )->whereNumber('id');
 
 
-
+//!adminNoticiasController se encarga de las vistas del adminNoticias
 Route::get('/admin/noticias',
     [\App\Http\Controllers\adminNoticiasController::class, 'admin']
-);
+)->middleware('auth');
 Route::get('/admin/noticias/nuevaEntrada',
     [\App\Http\Controllers\adminNoticiasController::class, 'createNoti']
-);
+)->middleware('auth');
 Route::post('/admin/noticias/nuevaEntrada',
     [\App\Http\Controllers\adminNoticiasController::class, 'processNoti']
-);
+)->middleware('auth');
 
 Route::get('admin/noticias/{id}/borrar',
     [\App\Http\Controllers\adminNoticiasController::class, 'deleteNoti']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 Route::post('admin/noticias/{id}/borrar',
     [\App\Http\Controllers\adminNoticiasController::class,'processDeleteNoti']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 
 route::get('/admin/noticias/{id}/editar',
     [\App\Http\Controllers\adminNoticiasController::class, 'editNoti']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 route::post('/admin/noticias/{id}/editar',
     [\App\Http\Controllers\adminNoticiasController::class, 'processEditNoti']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 
