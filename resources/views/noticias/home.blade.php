@@ -29,6 +29,7 @@
                     <a href="{{ url('/noticias/' . $posteo->id) }}">
                         <div class="card bg-ennoia-dark border-0 rounded-4 overflow-hidden text-white notice-card">
                             <img src="{{ asset('storage/' . $posteo->img) }}" class="rounded-3 card-img-top" alt="...">
+
                             <div class="card-body text-left px-0">
                                 <h2 class="h4 py-2 card-title fw-bold">{{ $posteo->titulo }}</h2>
                                 <div class="d-flex justify-content-between">
