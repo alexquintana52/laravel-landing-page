@@ -58,7 +58,7 @@ class Noticia extends Model
      * Reglas de validacion para el formulario de creacion de noticias
      */
     public static $reglas = [
-        'titulo' => 'required|min : 5|max : 50',
+        'titulo' => 'required|min : 5|max : 100',
         'noticia' => 'required | min : 5 | max : 2560',
         'funcionalidades' => 'required | min : 5 | max : 2560',
         'categoria_id' => 'required ',
