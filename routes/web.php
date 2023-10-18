@@ -4,28 +4,26 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Rutas Web
+| Web Routes
 |--------------------------------------------------------------------------
 |
-| Aquí registramos las rutas para la web de la aplicación.
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
-
-
-//!homeController se encarga de las vistas del home y about
 Route::get('/',
-    [\App\Http\Controllers\HomeController::class, 'index']
+[\App\Http\Controllers\HomeController::class, 'index']
 );
 Route::get('/',
-    [\App\Http\Controllers\HomeController::class, 'home']
+[\App\Http\Controllers\HomeController::class, 'home']
 );
 Route::get('/nosotros',
-    [\App\Http\Controllers\HomeController::class, 'about']
+[\App\Http\Controllers\HomeController::class, 'about']
 );
 
 
-//!sessionContoller se encarga de las vistas de login y register
 Route::get('/iniciar-sesion',
     [\App\Http\Controllers\sessionController::class, 'formlogin']
 );
@@ -90,7 +88,7 @@ Route::get('/noticias/{id}',
 )->whereNumber('id');
 
 
-//
+//!adminNoticiasController se encarga de las vistas del adminNoticias
 Route::get('/admin/noticias',
     [\App\Http\Controllers\adminNoticiasController::class, 'admin']
 )->middleware('auth');
@@ -118,4 +116,3 @@ route::post('/admin/noticias/{id}/editar',
     [\App\Http\Controllers\adminNoticiasController::class, 'processEditNoti']
 )->whereNumber('id')
 ->middleware('auth');
-

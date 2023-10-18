@@ -1,24 +1,24 @@
 <?php
-use app\model\Categoria_noticias;
-use app\model\Noticias;
-use illuminate\database\eloquent\Collection;
 /**
  * @var \iluminate\Support\Collection $errors
- */
+*/
 /**
  * @var Noticias $noticiasPost
  */
+use app\model\Noticias;
 ?>
 
 @extends('layout.main')
 
 @section('title', $noticiasPost->titulo)
 
-@section('contenido')
-    <div class="container my-4">
-        <h1>Editar Noticia</h1>
+@section('content')
 
-        <form action="{{ url('/admin/noticias/'.$noticiasPost->id.'/editar' )}}" class="" method="POST" enctype="multipart/form-data">
+    <div class="container my-5">
+
+        <h1 class="mb-5 text-center">Editar noticia</h1>
+
+        <form action="{{ url('/admin/noticias/'.$noticiasPost->id.'/editar' )}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="titulo" class="form-label">Titulo</label>
@@ -26,7 +26,7 @@ use illuminate\database\eloquent\Collection;
                 type="text"
                 id="titulo"
                 name="titulo"
-                class="form-control @error('titulo') is-invalid @enderror"
+                class="form-control input-admin @error('titulo') is-invalid @enderror"
                 value="{{old('titulo', $noticiasPost->titulo)}}"
                 @error('titulo')
                     aria-describedby="error-title"
@@ -40,8 +40,8 @@ use illuminate\database\eloquent\Collection;
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="noticia" class="form-label">noticia</label>
-                <textarea type="text" id="noticia" name="noticia" class="form-control
+                <label for="noticia" class="form-label">Noticia</label>
+                <textarea type="text" id="noticia" name="noticia" class="form-control text-area-admin
                 @error('noticia') is-invalid @enderror"
                 @error('noticia')
                     aria-describedby="error-title"
@@ -55,9 +55,9 @@ use illuminate\database\eloquent\Collection;
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="funcionalidades" class="form-label">funcionalidades</label>
+                <label for="funcionalidades" class="form-label">Funcionalidades</label>
                 <input type="text" id="funcionalidades" name="funcionalidades"
-                class="form-control @error('funcionalidades') is-invalid @enderror"
+                class="form-control input-admin @error('funcionalidades') is-invalid @enderror"
                 @error('funcionalidades')
                     aria-describedby="error-title"
                     aria-invalid="true"
@@ -71,8 +71,8 @@ use illuminate\database\eloquent\Collection;
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="categoria_id" class="form-label">Categoría</label>
-                <select id="categoria_id" name="categoria_id" class="form-control @error('categoria_id') is-invalid @enderror"
+                <label for="categoria" class="form-label">Categoría</label>
+                <select id="categoria_id" name="categoria_id" class="form-control input-admin @error('categoria_id') is-invalid @enderror"
                 @error('categoria_id')
                     aria-describedby="error-title"
                     aria-invalid="true"
@@ -93,12 +93,11 @@ use illuminate\database\eloquent\Collection;
                         {{$message}}
                     </p>
                 @enderror
-
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Portada</label>
                 <input type="file" id="img" name="img"
-                class="form-control @error('img') is-invalid @enderror"
+                class="form-control input-admin @error('img') is-invalid @enderror"
                 @error('img')
                     aria-describedby="error-title"
                     aria-invalid="true"
@@ -112,9 +111,9 @@ use illuminate\database\eloquent\Collection;
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="descripcion_img" class="form-label">descripción portada</label>
+                <label for="descripcion_img" class="form-label">Descripción portada</label>
                 <input type="text" id="descripcion_img" name="descripcion_img"
-                class="form-control @error('descripcion_img') is-invalid @enderror"
+                class="form-control input-admin @error('descripcion_img') is-invalid @enderror"
                 @error('descripcion_img')
                     aria-describedby="error-title"
                     aria-invalid="true"
@@ -130,7 +129,7 @@ use illuminate\database\eloquent\Collection;
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha</label>
                 <input type="date" id="title" name="fecha"
-                class="form-control @error('fecha') is-invalid @enderror"
+                class="form-control input-admin @error('fecha') is-invalid @enderror"
                 @error('fecha')
                     aria-describedby="error-title"
                     aria-invalid="true"
@@ -143,7 +142,7 @@ use illuminate\database\eloquent\Collection;
                     </p>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Crear</button>
+            <button type="submit" class="btn btn-primary mt-5 py-2 px-5 mx-auto d-flex justify-content-center">Editar</button>
         </form>
     </div>
 @endsection

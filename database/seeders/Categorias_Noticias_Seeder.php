@@ -16,18 +16,18 @@ class Categorias_Noticias_Seeder extends Seeder
         DB::table('categoria_noticias')->insert([
             [
                 'categoria_id' => 1,
-                'nombre' => 'Tutoriales y Guías',
-                'descripcion' => 'Recursos informativos para los usuarios',
+                'nombre' => 'Actualizaciones de la Aplicación.',
+                'descripcion' => 'Esta categoría está diseñada para informar a los usuarios sobre las últimas novedades y mejoras en tu aplicación.',
             ],
             [
                 'categoria_id' => 2,
-                'nombre' => 'Cómo Usar la Aplicación',
-                'descripcion' => 'Consejos sobre cómo utilizar nuestra aplicación',
+                'nombre' => 'Colaboraciones y Asociaciones',
+                'descripcion' => 'En esta categoría, puedes destacar noticias sobre colaboraciones y alianzas estratégicas que tu empresa o aplicación haya establecido con expertos o empresas del sector tecnológico.',
             ],
             [
                 'categoria_id' => 3,
-                'nombre' => 'Nuevas Características',
-                'descripcion' => 'Información sobre las últimas características de la aplicación',
+                'nombre' => 'Educación Tecnológica',
+                'descripcion' => 'Esta categoría se centra en contenidos relacionados con la educación y el aprendizaje de conceptos tecnológicos. ',
             ],
         ]);
     }

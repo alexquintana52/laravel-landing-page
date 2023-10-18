@@ -1,34 +1,32 @@
 @extends('layout.main')
 
-@section('title', 'Iniciar sesión')
+@section('title', 'Ennoia | Iniciar Sesión')
 
-@section('contenido')
-<div class="container">
-    <h1>Iniciar sesión </h1>
+@section('content')
 
-    <form action="{{url('/iniciar-sesion')}}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="text" id="email" name="email" class="form-control" value="{{old('email')}}" autocomplete="off">
-            @error('email')
-                <p class="text-danger">
-                    {{$message}}
-                </p>
-            @enderror
+    <section class="container py-5 login-section">
+        <div class="row text-center d-flex flex-column align-items-center justify-content-center">
+            <img src="{{ url('img/logo/logo-ennoia.svg') }}" class="logo-ennoia" />
+            <h3 class="fs-5 my-4">Iniciar Sesión en Ennoia</h3>
+            <form action="{{ url('/iniciar-sesion') }}" method="POST" class="form-ennoia d-flex flex-column align-items-center justify-content-center">
+                @csrf
+                    <input type="text" id="email" name="email" class="form-control input-ennoia" value="{{ old('email') }}" placeholder="Correo Electrónico" autocomplete="off">
+                    @error('email')
+                        <p class="text-danger">
+                            {{ $message }}
+                        </p>
+                    @enderror
+    
+                    <input type="password" id="password" name="password" class="form-control input-ennoia" placeholder="Contraseña" autocomplete="off">
+                    @error('password')
+                        <p class="text-danger">
+                            {{ $message }}
+                        </p>
+                    @enderror
+    
+                <button class="input-btn-ennoia fw-bold form-control">Ingresar</button>
+            </form>
         </div>
+    </section>
 
-        <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" id="password" name="password" class="form-control" autocomplete="off">
-            @error('password')
-                <p class="text-danger">
-                    {{$message}}
-                </p>
-            @enderror
-        </div>
-
-        <button class="btn btn-primary">Ingresar</button>
-    </form>
-</div>
 @endsection

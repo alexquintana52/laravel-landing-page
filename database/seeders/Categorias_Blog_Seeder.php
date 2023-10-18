@@ -16,18 +16,18 @@ class Categorias_Blog_Seeder extends Seeder
         DB::table('categoria_blog')->insert([
             [
                 'categoria_id' => 1,
-                'nombre' => 'Programación y Desarrollo',
-                'descripcion' => 'Descubre las últimas tendencias en desarrollo web, aplicaciones móviles y programación. Aprende sobre lenguajes de programación, herramientas y entornos de desarrollo líderes en la industria',
+                'nombre' => 'Educación Tecnológica',
+                'descripcion' => 'Esta categoría puede abarcar todos los artículos relacionados con la enseñanza y el aprendizaje de la tecnología, ya que se centran en la aplicación educativa.',
             ],
             [
                 'categoria_id' => 2,
-                'nombre' => 'Redes y Comunicaciones',
-                'descripcion' => 'Explora el mundo de las redes de computadoras y las comunicaciones. Aprende sobre las últimas tecnologías en redes, incluyendo Internet de las Cosas (IoT)',
+                'nombre' => ' Aprendizaje Lúdico',
+                'descripcion' => 'Esta categoría es ideal para artículos que destacan cómo el aprendizaje a través de juegos puede ser beneficioso y atractivo.',
             ],
             [
                 'categoria_id' => 3,
-                'nombre' => 'Sistemas Operativos',
-                'descripcion' => 'Conoce los sistemas operativos más utilizados, como Windows, macOS, Linux, Android e iOS. Descubre consejos y trucos para aprovechar al máximo tu sistema operativo preferido.',
+                'nombre' => 'Conceptos Tecnológicos',
+                'descripcion' => ' Los artículos que se centran en los conceptos de tecnología específicos que se enseñan en la aplicación pueden categorizarse aquí.',
             ],
         ]);
     }

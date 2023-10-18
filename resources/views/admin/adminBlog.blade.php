@@ -1,53 +1,48 @@
-
 @extends('layout.main')
 
-@section('title', 'Admin Blog')
+@section('title', 'Admin | Blog')
 
-@section('contenido')
+@section('content')
 
-<div class="container">
+    <div class="container my-5">
 
+        <h1 class="mb-5 text-center">Admin Blog</h1>
 
-    <h1>Admin blog</h1>
+        <div class="text-center">
+            <a href="{{ url('/admin/blog/nuevaEntrada') }}" class="mb-5 d-inline-block btn-ennoia">Nueva entrada</a>
+        </div>
 
-    <div class="my-3">
-        <a href="{{ url('/admin/blog/nuevaEntrada')}}">Nueva entrada</a>
-    </div>
-
-
-    <div class="container">
-        <table class="table">
+        <table class="table overflow-scroll">
             <thead>
                 <tr>
-                    <th>Titulo</th>
-                    <th>Noticia</th>
-                    <th>Categoria</th>
-                    <th>Fecha</th>
-                    <th>Acciones</th>
+                    <th class="bg-dark text-white p-3">Titulo</th>
+                    <th class="bg-dark text-white p-3">Noticia</th>
+                    <th class="bg-dark text-white p-3">Categoria</th>
+                    <th class="bg-dark text-white p-3">Fecha</th>
+                    <th class="bg-dark text-white p-3">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($blogPost as $posteo)
-                <tr>
-                    <td>{{$posteo->titulo}}</td>
-                    <td>{{$posteo->noticia}}</td>
-                    <td>{{$posteo->categoria_blog->nombre }}</td>
-                    <td>{{$posteo->fecha}}</td>
-                    <td >
-                        <div class="d-flex gap-2">
-                            <a href="{{ url('/blog/'. $posteo->id)}}" class="btn btn-small btn-primary" target="_blank">ver</a>
-                            <a href="{{ url('admin/blog/'. $posteo->id .'/editar')}}" class="btn btn-small btn-warning">Editar</a>
-                            <a href="{{ url('admin/blog/'. $posteo->id .'/borrar')}}" class="btn btn-small btn-danger">Eliminar</a>
-                        </div>
-                    </td>
-                </tr>
+                    <tr>
+                        <td class="bg-dark text-white p-3">{{ $posteo->titulo }}</td>
+                        <td class="bg-dark text-white p-3">{{ $posteo->noticia }}</td>
+                        <td class="bg-dark text-white p-3">{{ $posteo->categoria_blog->nombre }}</td>
+                        <td class="bg-dark text-white p-3">{{ $posteo->fecha }}</td>
+                        <td class="bg-dark text-white p-3">
+                            <div class="d-flex gap-2">
+                                <a href="{{ url('/blog/' . $posteo->id) }}" class="btn btn-small btn-primary"
+                                    target="_blank">Ver</a>
+                                <a href="{{ url('admin/blog/' . $posteo->id . '/editar') }}"
+                                    class="btn btn-small btn-warning">Editar</a>
+                                <a href="{{ url('admin/blog/' . $posteo->id . '/borrar') }}"
+                                    class="btn btn-small btn-danger">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 
-</div>
-
 @endsection
-
-
