@@ -74,11 +74,12 @@ class adminBlogController extends Controller
         $post = Blog::findOrFail($id);
         $request -> validate( Blog::$reglas, Blog::$mensajesdeError );
 
-        if($post->img && Storage::has($post->img) ){
-            Storage::delete($post->img);
-        }
+
         if($request->hasFile('img')){
             $data['img'] = $request->file('img')->store('imagagenBlog');
+            if($post->img && Storage::has($post->img) ){
+                Storage::delete($post->img);
+            }
         }
 
 

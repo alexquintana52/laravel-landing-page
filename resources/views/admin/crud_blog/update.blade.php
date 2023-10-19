@@ -74,6 +74,13 @@ use app\model\Blog;
 
             </div>
             <div class="mb-3">
+                <div  class="mb-2">
+                    @if ($blogPost->img )
+                        <img src="{{ asset('storage/' . $blogPost->img) }}" alt="{{ $blogPost->titulo }}" class="img-fluid">
+                    @else
+                        <p>No hay imagen</p>
+                    @endif
+                </div>
                 <label for="img" class="form-label">Portada</label>
                 <input type="file" id="img" name="img" class="form-control input-admin @error('img') is-invalid @enderror"
                     @error('img')

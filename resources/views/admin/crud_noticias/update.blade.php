@@ -111,6 +111,13 @@ use app\model\Noticias;
                 @enderror
             </div>
             <div class="mb-3">
+                <div class="mb-2">
+                    @if ($noticiasPost->img)
+                        <img src="{{asset('storage/'.$noticiasPost->img)}}" alt="{{$noticiasPost->descripcion_img }}"  class="img-fluid"
+                    @else
+                        <p>no hay imagen</p>
+                    @endif
+                </div>
                 <label for="descripcion_img" class="form-label">Descripción portada</label>
                 <input type="text" id="descripcion_img" name="descripcion_img"
                 class="form-control input-admin @error('descripcion_img') is-invalid @enderror"
