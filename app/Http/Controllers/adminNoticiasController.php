@@ -72,11 +72,11 @@ class adminNoticiasController extends Controller
         $noti = Noticia::findOrFail($id);
         $request -> validate( Noticia::$reglas, Noticia::$mensajesdeError);
 
-        if($noti->img && Storage::has($noti->img) ){
-            Storage::delete($noti->img);
-        }
         if($request->hasFile('img')){
             $data['img'] = $request->file('img')->store('imagenNoticias');
+                if($noti->img && Storage::has($noti->img) ){
+                Storage::delete($noti->img);
+            }
         }
 
         $noti->update($data);
