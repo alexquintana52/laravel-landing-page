@@ -48,5 +48,27 @@ class NoticiasSeeder extends Seeder
                 'updated_at'=>now()
             ],
         ]);
+
+        DB::table('noticias_x_genero')->insert([
+            [
+                'noticia_id'=>1,
+                'genero_id'=>1,
+                "created_at"=> now(),
+                "updated_at"=> now()
+            ],
+            [
+                'noticia_id'=>2,
+                'genero_id'=>2,
+                "created_at"=> now(),
+                "updated_at"=> now()
+            ],
+            [
+                'noticia_id'=>3,
+                'genero_id'=>2,
+                "created_at"=> now(),
+                "updated_at"=> now()
+            ],
+        ]);
+
     }
 }

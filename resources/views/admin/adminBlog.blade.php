@@ -19,6 +19,7 @@
                     <th class="bg-dark text-white p-3">Noticia</th>
                     <th class="bg-dark text-white p-3">Categoria</th>
                     <th class="bg-dark text-white p-3">Fecha</th>
+                    <th class="bg-dark text-white p-3">Imagenes</th>
                     <th class="bg-dark text-white p-3">Acciones</th>
                 </tr>
             </thead>
@@ -29,6 +30,10 @@
                         <td class="bg-dark text-white p-3">{{ $posteo->noticia }}</td>
                         <td class="bg-dark text-white p-3">{{ $posteo->categoria_blog->nombre }}</td>
                         <td class="bg-dark text-white p-3">{{ $posteo->fecha }}</td>
+                        <td class="bg-dark text-white p-3">
+                            <img src="{{ asset('storage/' . $posteo->img) }}" alt="{{ $posteo->descripcion_img}}"
+                                class="img-fluid rounded">
+                        </td>
                         <td class="bg-dark text-white p-3">
                             <div class="d-flex gap-2">
                                 <a href="{{ url('/blog/' . $posteo->id) }}" class="btn btn-small btn-primary"

@@ -42,6 +42,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/blog')}}">Admin Blog</a></li>
                                 <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/noticias')}}">Admin Noticias</a></li>
+                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/usuarios')}}">Admin Usuarios</a></li>
                             </ul>
                         </li>
                     @endauth

@@ -116,3 +116,10 @@ route::post('/admin/noticias/{id}/editar',
     [\App\Http\Controllers\adminNoticiasController::class, 'processEditNoti']
 )->whereNumber('id')
 ->middleware('auth');
+
+
+//!adminUsuariosController se encarga de las vistas del adminUsuarios
+
+Route::get('/admin/usuarios',
+    [\App\Http\Controllers\AdminUsersController::class, 'admin']
+)->middleware('auth');
