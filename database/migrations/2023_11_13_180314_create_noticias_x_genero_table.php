@@ -15,8 +15,8 @@ return new class extends Migration
             $table->foreignId("noticia_id")->constrained("noticias", "id");
             $table->unsignedTinyInteger("genero_id");
             $table->foreign("genero_id")->references("genero_id")->on("generos");
-
             $table->primary(["noticia_id", "genero_id"]);
+            $table->timestamps();
         });
     }
 

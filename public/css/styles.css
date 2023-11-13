@@ -102,7 +102,7 @@ h5,h6 {
 
 .btn-ennoia-outline:hover {
   content: '';
-  color: var(--clr-primary-hover);
+  color: var(--clr-light-100);
   border-color: var(--clr-primary-hover);
 }
 
@@ -119,6 +119,7 @@ h5,h6 {
 
 .btn-ennoia:hover {
   background-color: var(--clr-primary-hover);
+  color:var(--clr-light-100)
 }
 
 .btn-last {

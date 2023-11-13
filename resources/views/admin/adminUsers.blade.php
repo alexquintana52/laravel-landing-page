@@ -11,7 +11,7 @@
         <h1 class="mb-5 text-center">Admin Noticias</h1>
 
         <div class="text-center">
-            <a href="{{ url('/admin/noticias/nuevaEntrada') }}" class="mb-5 d-inline-block btn-ennoia">Nueva entrada</a>
+            <a href="{{ url('/admin/noticias/nuevaEntrada') }}" class="mb-5 d-inline-block btn-ennoia">Nueva usuario</a>
         </div>
 
         <table class="table overflow-scroll">
@@ -19,6 +19,7 @@
                 <tr>
                     <th class="bg-dark text-white p-3">Nombre</th>
                     <th class="bg-dark text-white p-3">Email</th>
+                    <th class="bg-dark text-white p-3">Rol</th>
                     <th class="bg-dark text-white p-3">Subscripciones</th>
                     <th class="bg-dark text-white p-3">Acciones</th>
                 </tr>
@@ -28,15 +29,12 @@
                     <tr>
                         <td class="bg-dark text-white p-3">{{ $dato->name }}</td>
                         <td class="bg-dark text-white p-3">{{ $dato->email }}</td>
+                        <td class="bg-dark text-white p-3">{{ $dato->rol }}</td>
                         <td class="bg-dark text-white p-3"></td>
                         <td class="bg-dark text-white p-3">
                             <div class="d-flex gap-2">
-                                <a href="{{ url('/noticias/' . $dato->id) }}" class="btn btn-small btn-primary"
+                                <a href="{{ url('/noticias/' . $dato->id) }}" class=" d-inline-block btn-ennoia"
                                     target="_blank">Ver</a>
-                                <a href="{{ url('admin/noticias/' . $dato->id . '/editar') }}"
-                                    class="btn btn-small btn-warning">Editar</a>
-                                <a href="{{ url('admin/noticias/' . $dato->id . '/borrar') }}"
-                                    class="btn btn-small btn-danger">Eliminar</a>
                             </div>
                         </td>
                     </tr>

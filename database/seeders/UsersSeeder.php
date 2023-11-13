@@ -19,6 +19,7 @@ class UsersSeeder extends Seeder
                 'name'=>'Ennoia',
                 'email'=>'ennoia@gmail.com',
                 'password'=>bcrypt('ennoia'),
+                'rol'=>'admin',
                 'created_at'=>now(),
                 'updated_at'=>now()
             ],
@@ -27,6 +28,7 @@ class UsersSeeder extends Seeder
                 'name'=>'Juan',
                 'email'=>'juan@gmail.com',
                 'password'=>bcrypt('juanlopez'),
+                'rol'=>'admin',
                 'created_at'=>now(),
                 'updated_at'=>now()
             ],
@@ -35,6 +37,7 @@ class UsersSeeder extends Seeder
                 'name'=>'Alex',
                 'email'=>'alex@gmail.com',
                 'password'=>bcrypt('alexquintana'),
+                'rol'=>'admin',
                 'created_at'=>now(),
                 'updated_at'=>now()
             ],
@@ -43,6 +46,7 @@ class UsersSeeder extends Seeder
                 'name'=>'sara za',
                 'email'=>'saraza@gmail.com',
                 'password'=>bcrypt('saraza'),
+                'rol'=>'user',
                 'created_at'=>now(),
                 'updated_at'=>now()
             ],
