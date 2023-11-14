@@ -21,7 +21,8 @@ class UsersSeeder extends Seeder
                 'password'=>bcrypt('ennoia'),
                 'rol'=>'admin',
                 'created_at'=>now(),
-                'updated_at'=>now()
+                'updated_at'=>now(),
+                'servicio_id'=>"1"
             ],
             [
                 'id'=>2,
@@ -30,7 +31,8 @@ class UsersSeeder extends Seeder
                 'password'=>bcrypt('juanlopez'),
                 'rol'=>'admin',
                 'created_at'=>now(),
-                'updated_at'=>now()
+                'updated_at'=>now(),
+                'servicio_id'=>"3"
             ],
             [
                 'id'=>3,
@@ -39,7 +41,8 @@ class UsersSeeder extends Seeder
                 'password'=>bcrypt('alexquintana'),
                 'rol'=>'admin',
                 'created_at'=>now(),
-                'updated_at'=>now()
+                'updated_at'=>now(),
+                'servicio_id'=>"3"
             ],
             [
                 'id'=>4,
@@ -48,7 +51,8 @@ class UsersSeeder extends Seeder
                 'password'=>bcrypt('saraza'),
                 'rol'=>'user',
                 'created_at'=>now(),
-                'updated_at'=>now()
+                'updated_at'=>now(),
+                'servicio_id'=>"1"
             ],
         ]);
     }

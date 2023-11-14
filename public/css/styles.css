@@ -104,6 +104,7 @@ h5,h6 {
   content: '';
   color: var(--clr-light-100);
   border-color: var(--clr-primary-hover);
+  border-radius: 25px;
 }
 
 .btn-ennoia {

@@ -35,6 +35,7 @@
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
                     </li>
                     @auth
+                        @if (auth()->user()->rol == 'admin')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle ff-jetbrains text-white" href="#" role="button" data-bs-toggle="dropdown" >
                                 Administración
@@ -45,6 +46,7 @@
                                 <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/usuarios')}}">Admin Usuarios</a></li>
                             </ul>
                         </li>
+                        @endif
                     @endauth
                 </ul>
                 @auth
