@@ -118,8 +118,63 @@ route::post('/admin/noticias/{id}/editar',
 ->middleware('auth');
 
 
+
+//!serviciosController se encarga de las vistas de servicios
+
+
+Route::get('/admin/servicios',
+    [\App\Http\Controllers\AdminServiciosController::class, 'admin']
+)->middleware('auth');
+
+Route::get('/admin/servicios/nuevoServicio',
+    [\App\Http\Controllers\AdminServiciosController::class, 'createServicio']
+)->middleware('auth');
+
+Route::post('/admin/servicios/nuevoServicio',
+    [\App\Http\Controllers\AdminServiciosController::class, 'processServicio']
+)->middleware('auth');
+
+Route::get('/admin/servicios/{id}/borrar',
+    [\App\Http\Controllers\AdminServiciosController::class, 'deleteServicio']
+)->whereNumber('id')
+->middleware('auth');
+
+Route::post('/admin/servicios/{id}/borrar',
+    [\App\Http\Controllers\AdminServiciosController::class, 'processDeleteServicio']
+)->whereNumber('id')
+->middleware('auth');
+
+route::get('/admin/servicios/{id}/editar',
+    [\App\Http\Controllers\AdminServiciosController::class, 'editServicio']
+)->whereNumber('id')
+->middleware('auth');
+
+route::post('/admin/servicios/{id}/editar',
+    [\App\Http\Controllers\AdminServiciosController::class, 'processEditServicio']
+)->whereNumber('id')
+->middleware('auth');
+
+Route::get('/servicios',
+    [\App\Http\Controllers\ServiciosController::class, 'index']
+);
+
+
 //!adminUsuariosController se encarga de las vistas del adminUsuarios
 
 Route::get('/admin/usuarios',
     [\App\Http\Controllers\AdminUsersController::class, 'admin']
 )->middleware('auth');
+
+
+Route::get('mi-perfil/{id}',
+    [\App\Http\Controllers\UsersController::class, 'show']
+)->middleware('auth');
+
+Route::get('/registrarse',
+    [\App\Http\Controllers\AdminUsersController::class, 'createUser']
+);
+
+Route::post('/registrarse',
+    [\App\Http\Controllers\AdminUsersController::class, 'processUser']
+);
+

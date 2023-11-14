@@ -88,43 +88,10 @@ class User extends Authenticatable
         'password.max' => 'El campo password debe tener como maximo 50 caracteres',
     ];
 
-    public function servicios():BelongsTo
-    {
-        return $this->belongsTo(Servicios::class, 'servicio_id', 'servicio_id');
-    }
-
-}
-
-/*
-class Users extends Model
-{
-
-    protected $table = 'users';
-    protected $primaryKey = 'id';
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'rol',
-        'servicio_id',
-    ];
-
-    public static $reglas = [
-        'email' => 'required|email',
-        'password' => 'required|max : 50',
-    ];
-
-    public static $mensajes = [
-        'email.required' => 'El campo email es obligatorio',
-        'email.email' => 'El campo email debe ser un email valido',
-        'password.required' => 'El campo password es obligatorio',
-        'password.max' => 'El campo password debe tener como maximo 50 caracteres',
-    ];
-
     public function servicosPorUsuario():BelongsTo
     {
         return $this->belongsTo(Servicios::class, 'servicio_id', 'servicio_id');
     }
+
 }
-*/
 

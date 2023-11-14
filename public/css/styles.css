@@ -7,6 +7,10 @@
 
   --clr-primary: #b6e326;
   --clr-primary-hover: #95b823;
+    --delete-color: #F02323;
+    --delete-color-hover: #c40b0b;
+    --update-color: #F0E636;
+    --update-color-hover: #cac21d;
   --clr-bg-dark: #131f2b;
   --clr-bg-dark-2: #0d151d;
   --clr-bg-dark-light: #1c2c3b;
@@ -120,6 +124,54 @@ h5,h6 {
 
 .btn-ennoia:hover {
   background-color: var(--clr-primary-hover);
+  color:var(--clr-light-100)
+}
+
+.btn-ennoia-delete {
+  background-color: var(--delete-color);
+  color: var(--clr-font-dark);
+  font-family: var(--ff-jetbrains);
+  font-weight: 600;
+  outline: 0;
+  border: 0;
+  padding: 8px 35px;
+  border-radius: 100px;
+}
+
+.btn-ennoia-delete:hover {
+  background-color: var(--delete-color-hover);
+  color:var(--clr-light-100)
+}
+
+.btn-ennoia {
+  background-color: var(--clr-primary);
+  color: var(--clr-font-dark);
+  font-family: var(--ff-jetbrains);
+  font-weight: 600;
+  outline: 0;
+  border: 0;
+  padding: 8px 35px;
+  border-radius: 100px;
+}
+
+.btn-ennoia:hover {
+  background-color: var(--clr-primary-hover);
+  color:var(--clr-light-100)
+}
+
+.btn-ennoia-update {
+  background-color: var(--update-color);
+  color: var(--clr-font-dark);
+  font-family: var(--ff-jetbrains);
+  font-weight: 600;
+  outline: 0;
+  border: 0;
+  padding: 8px 35px;
+  border-radius: 100px;
+}
+
+.btn-ennoia-update:hover {
+  background-color: var(--update-color-hover);
   color:var(--clr-light-100)
 }
 

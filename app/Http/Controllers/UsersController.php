@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UsersController extends Controller
 {
-    public function show()
+    public function show(int $id)
     {
-        return view('admin.show');
+        return view('users.show',[
+            'user' => User::findOrFail($id)
+        ]);
     }
+
+
 }

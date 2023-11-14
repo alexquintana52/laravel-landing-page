@@ -28,7 +28,7 @@
                         <td class="bg-dark text-white p-3">{{ $dato->name }}</td>
                         <td class="bg-dark text-white p-3">{{ $dato->email }}</td>
                         <td class="bg-dark text-white p-3">{{ $dato->rol }}</td>
-                        <td class="bg-dark text-white p-3 text-center">{{ $dato->servicio_id}}</td>
+                        <td class="bg-dark text-white p-3 text-center">{{ isset($dato->servicosPorUsuario->nombre) ? $dato->servicosPorUsuario->nombre : "" }}</td>
                         <td class="bg-dark text-white p-3">
                             <div class="d-flex gap-2">
                                 <a href="{{ url('/usuarios/' . $dato->id) }}" class=" d-inline-block btn-ennoia"

@@ -34,6 +34,9 @@
                     <li class="nav-item">
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/servicios') }}">Paquetes</a>
+                    </li>
                     @auth
                         @if (auth()->user()->rol == 'admin')
                         <li class="nav-item dropdown">
@@ -43,6 +46,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/blog')}}">Admin Blog</a></li>
                                 <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/noticias')}}">Admin Noticias</a></li>
+                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/servicios')}}">Admin Servicios</a></li>
                                 <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/usuarios')}}">Admin Usuarios</a></li>
                             </ul>
                         </li>
@@ -59,6 +63,11 @@
                         </form>
                     </div>
                 @else
+                    <div>
+                        <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ url('/registrarse')}}">
+                        Registrarse
+                        </a>
+                    </div>
                     <div>
                         <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ url('/iniciar-sesion')}}">
                         Iniciar Sesión
