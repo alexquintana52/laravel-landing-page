@@ -166,7 +166,7 @@ Route::get('/admin/usuarios',
 )->middleware('auth');
 
 
-Route::get('mi-perfil/{id}',
+Route::get('mi-perfil',
     [\App\Http\Controllers\UsersController::class, 'show']
 )->middleware('auth');
 
