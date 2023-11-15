@@ -8,10 +8,10 @@
 <section class="container py-5 login-section">
     <h1 class="h4 py-2 ">Servicios </h1>
     <p class="h4 pb-2">
-        @if ($user->servicio_id != null)
-            Hola {{$user->name}} ¿Queres adquirir un servicio ?
+        @if ($user->servicio_id == null)
+            Hola <b class="text-success">{{$user->name}}</b>, ¿Queres adquirir un servicio ?
         @else
-        Hola {{$user->name}} ¿Queres cambiar a un nuevo servicio?
+        Hola <b class="text-success">{{$user->name}}</b>, ¿Queres cambiar a un nuevo servicio?
         @endif
     </p>
     <div class="row gy-5 ">
