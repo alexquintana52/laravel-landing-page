@@ -61,8 +61,8 @@ class AdminUsersController extends Controller
 
         $Usuario->update($data);
 
-        return redirect('/servicios')
-        ->with('status.message','Tu suscripcion fue procesada con exito verifica tu perfil para ver los cambios' );
+        return redirect('/mi-perfil')
+        ->with('status.message','Tu suscripcion fue procesada con exito verifica los cambios' );
     }
 
 }
