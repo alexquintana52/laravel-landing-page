@@ -7,10 +7,14 @@
 
 <section class="container py-5 login-section">
     <h1 class="h4 py-2 ">Servicios {{$user->name}}</h1>
-    <div class="row gy-5">
+    <div class="row gy-5 ">
         @foreach ($servicios as $servicio)
         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 bg-ennoia-dark-light rounded-3 overflow-hidden text-white">
+            <div class="card h-100 bg-ennoia-dark-light rounded-3 overflow-hidden text-white
+                @if($user->servicosPorUsuario->nombre == $servicio->nombre )
+                    borde-ennoia
+                @endif
+            ">
                 <img src="{{ asset('storage/' . $servicio->img) }}" alt="{{ $servicio->descripcion_img }}" class="card-img-top" alt="...">
                 <div class="card-body text-center">
                     <h2 class="h4 py-2 card-title fw-bold text-ennoia">{{ $servicio->nombre }}</h2>
@@ -38,7 +42,20 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-ennoia-update mt-5 py-2 px-5 mx-auto d-flex justify-content-center">adquirir</button>
+                        <button
+                        @if ($user->servicosPorUsuario->nombre == $servicio->nombre)
+                            type="button"
+                        @else
+                            type="submit"
+                        @endif
+
+                        class="btn btn-ennoia-update mt-5 py-2 px-5 mx-auto d-flex justify-content-center">
+                            @if($user->servicosPorUsuario->nombre == $servicio->nombre )
+                                <i class="fa-solid fa-check"></i>
+                            @else
+                                adquirir
+                            @endif
+                        </button>
                     </form>
                 </div>
                 @else
