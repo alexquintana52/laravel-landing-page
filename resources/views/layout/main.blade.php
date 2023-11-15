@@ -35,7 +35,7 @@
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/servicios') }}">Paquetes</a>
+                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/servicios') }}">Servicios</a>
                     </li>
                     @auth
                         @if (auth()->user()->rol == 'admin')

@@ -178,11 +178,12 @@ Route::post('/registrarse',
     [\App\Http\Controllers\AdminUsersController::class, 'processUser']
 );
 
-
 Route::get('/servicios',
     [\App\Http\Controllers\AdminUsersController::class, 'editUser']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');
 
 Route::post('/servicios',
     [\App\Http\Controllers\AdminUsersController::class, 'processEditUser']
-)->whereNumber('id');
+)->whereNumber('id')
+->middleware('auth');;

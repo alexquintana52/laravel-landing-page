@@ -1,9 +1,4 @@
-<?php
-use app\model\User;
-use app\model\Servicio;
-use illuminate\database\eloquent\Collection;
 
-?>
 @extends('layout.main')
 
 @section('title', 'Ennoia | Perfil')
