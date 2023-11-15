@@ -6,9 +6,17 @@
 
 @section('content')
 
-<section class="container my-5 d-flex justify-content-between">
 
-    <div class="row my-4 col-md-3">
+<section class="container my-5">
+    <div class="col-md-4">
+        <h1 >
+            Mi perfil
+        </h1>
+    </div>
+    <div class="my-4 col-md-4">
+        <h2>
+            Datos
+        </h2>
         <p>
             {{ $user->name }}
         </p>
@@ -17,19 +25,24 @@
         </p>
     </div>
 
-    <div class="row my-4 col-md-3">
-        <p>
-            {{ isset($user->servicosPorUsuario->nombre) ? $user->servicosPorUsuario->nombre : "" }}
-        </p>
-        <p>
-            {{ isset($user->servicosPorUsuario->descripcion) ? $user->servicosPorUsuario->descripcion : "" }}
-        </p>
+    <div class="my-4 col-md-4">
+        <h2>
+            Suscrición
+        </h2>
+        @if (isset($user->servicosPorUsuario->nombre))
+            <p>
+                {{ isset($user->servicosPorUsuario->nombre) ? $user->servicosPorUsuario->nombre : "" }}
+            </p>
+            <p>
+                {{ isset($user->servicosPorUsuario->descripcion) ? $user->servicosPorUsuario->descripcion : "" }}
+            </p>
+            <img src="{{ asset('storage/' . $user->servicosPorUsuario->img) }}" alt="{{ $user->servicosPorUsuario->descripcion_img}}" class="img-fluid rounded">
 
-        <img src="{{ asset('storage/' . $user->servicosPorUsuario->img) }}" alt="{{ $user->servicosPorUsuario->descripcion_img}}" class="img-fluid rounded">
+            <a href="/servicios" class="d-inline-block btn-ennoia my-4 text-center" >
+                Modificar
+            </a>
+        @endif
 
-        <a href="" class="d-inline-block btn-ennoia my-4 text-center" >
-            Modificar
-        </a>
     </div>
 
 
