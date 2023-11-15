@@ -41,6 +41,13 @@
             <a href="/servicios" class="d-inline-block btn-ennoia my-4 text-center" >
                 Modificar
             </a>
+        @else
+            <p class="mb-2 text-danger">
+                No tienes suscripción
+            </p>
+            <a href="/servicios" class="d-inline-block btn-ennoia my-4 text-center" >
+                Suscribirme
+            </a>
         @endif
 
     </div>

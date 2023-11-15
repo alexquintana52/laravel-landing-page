@@ -6,12 +6,19 @@
 @section('content')
 
 <section class="container py-5 login-section">
-    <h1 class="h4 py-2 ">Servicios {{$user->name}}</h1>
+    <h1 class="h4 py-2 ">Servicios </h1>
+    <p class="h4 pb-2">
+        @if ($user->servicio_id != null)
+            Hola {{$user->name}} ¿Queres adquirir un servicio ?
+        @else
+        Hola {{$user->name}} ¿Queres cambiar a un nuevo servicio?
+        @endif
+    </p>
     <div class="row gy-5 ">
         @foreach ($servicios as $servicio)
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card h-100 bg-ennoia-dark-light rounded-3 overflow-hidden text-white
-                @if($user->servicosPorUsuario->nombre == $servicio->nombre )
+                @if($user->servicio_id == $servicio->servicio_id )
                     borde-ennoia
                 @endif
             ">
@@ -43,14 +50,14 @@
                         </div>
 
                         <button
-                        @if ($user->servicosPorUsuario->nombre == $servicio->nombre)
+                        @if ($user->servicio_id == $servicio->servicio_id)
                             type="button"
                         @else
                             type="submit"
                         @endif
 
                         class="btn btn-ennoia-update mt-5 py-2 px-5 mx-auto d-flex justify-content-center">
-                            @if($user->servicosPorUsuario->nombre == $servicio->nombre )
+                            @if($user->servicio_id == $servicio->servicio_id )
                                 <i class="fa-solid fa-check"></i>
                             @else
                                 adquirir
