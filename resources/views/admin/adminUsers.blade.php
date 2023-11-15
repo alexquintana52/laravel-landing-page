@@ -28,7 +28,17 @@
                         <td class="bg-dark text-white p-3">{{ $dato->name }}</td>
                         <td class="bg-dark text-white p-3">{{ $dato->email }}</td>
                         <td class="bg-dark text-white p-3">{{ $dato->rol }}</td>
-                        <td class="bg-dark text-white p-3 text-center">{{ isset($dato->servicosPorUsuario->nombre) ? $dato->servicosPorUsuario->nombre : "" }}</td>
+                        <td class="bg-dark text-white p-3 text-center">
+                            @if (isset($dato->servicosPorUsuario->nombre))
+                                    <span class="badge bg-success px-4 py-2">
+                                        {{$dato->servicosPorUsuario->nombre }}
+                                    </span>
+                            @else
+                                <span class="badge bg-danger px-4 py-2">
+                                    No tiene servicios asociados
+                                </span>
+                            @endif
+                        </td>
                         <td class="bg-dark text-white p-3">
                             <div class="d-flex gap-2">
                                 <a href="{{ url('/usuarios/' . $dato->id) }}" class=" d-inline-block btn-ennoia"

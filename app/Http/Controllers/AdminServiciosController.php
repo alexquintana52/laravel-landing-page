@@ -43,10 +43,15 @@ class AdminServiciosController extends Controller
     public function processEditServicio(Request $request, $id){
         $data=$request->except('_token');
 
+        $servicio = Servicios::findOrFail($id);
+
         $request -> validate( Servicios::$reglas, Servicios::$mensajesdeError );
 
         if($request->hasFile('img')){
             $data['img'] = $request->file('img')->store('imagagenServicios');
+            if($servicio->img && Storage::has($servicio->img) ){
+                Storage::delete($servicio->img);
+            }
         }
 
         $servicio = Servicios::findOrFail($id);

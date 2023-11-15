@@ -1,6 +1,7 @@
 <?php
 use app\model\Noticias;
 use app\model\Categoria_noticias;
+use app\model\Genero;
 use illuminate\database\eloquent\Collection;
 /**
  * @var \iluminate\Support\Collection $errors
@@ -141,8 +142,26 @@ use illuminate\database\eloquent\Collection;
                     </p>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary mt-5 py-2 px-5 mx-auto d-flex justify-content-center">Crear</button>
+            <fieldset>
+                <legend>Géneros</legend>
+                @foreach ($generos as $value)
+                <label class="mx-2">
+                    <input
+                    type="checkbox"
+                    name="generos[]"
+                    value="{{$value->genero_id}}"
+                    class="form-check-input"
+                    @checked(in_array($value->genero_id, old('generos', [])))
+                    >
+                    <span class="form-check-label">
+                        {{$value->nombre}}
+                    </span>
+                </label>
+                @endforeach
+
+            </fieldset>
+            <button type="submit" class="btn btn-ennoia mt-5 py-2 px-5 mx-auto d-flex justify-content-center">Crear</button>
         </form>
     </div>
-    
+
 @endsection
