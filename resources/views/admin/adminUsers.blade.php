@@ -17,7 +17,6 @@
                     <th class="bg-dark text-white p-3">Email</th>
                     <th class="bg-dark text-white p-3">Rol</th>
                     <th class="bg-dark text-white p-3 text-center">Subscripciones</th>
-                    <th class="bg-dark text-white p-3"></th>
                 </tr>
             </thead>
             <div>
@@ -38,12 +37,6 @@
                                     No tiene servicios asociados
                                 </span>
                             @endif
-                        </td>
-                        <td class="bg-dark text-white p-3">
-                            <div class="d-flex gap-2">
-                                <a href="{{ url('/usuarios/' . $dato->id) }}" class=" d-inline-block btn-ennoia"
-                                    target="_blank">Ver</a>
-                            </div>
                         </td>
                     </tr>
                 @endforeach
