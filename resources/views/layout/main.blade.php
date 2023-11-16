@@ -89,8 +89,9 @@
     <main>
         @if (\Session::has('status.message'))
             <div class="container">
-                <div class="alert alert-success">
+                <div class="alert alert-dismissible fade show mensajes" role="alert">
                     {!! \Session::get('status.message') !!}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
 

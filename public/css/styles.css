@@ -32,6 +32,17 @@
   font-family: var(--ff-manrope);
 }
 
+.mensajes{
+    position: absolute;
+    top: 50;
+    max-width: 300px;
+    right: 10%;
+    z-index: 1000;
+    border: var(--clr-primary) 2px solid;
+    color:var(--clr-bg-dark-light);
+    background-color: var(--clr-primary);
+    font-weight: bold;
+}
 i{
     font-size: 20px;
 }
