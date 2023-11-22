@@ -41,11 +41,8 @@ class AdminUsersController extends Controller
         ->with('status.message', 'El usuario <b>'. e($request->nombre) .'</b> fue creado con éxito');
     }
 
-
-
-
-
-    public function editUser(){
+    public function editUser()
+    {
         $id = Auth::id();
         return view('servicios.index',[
             'user' => User::findOrFail($id),
@@ -53,7 +50,8 @@ class AdminUsersController extends Controller
         ]);
     }
 
-    public function processEditUser(Request $request){
+    public function processEditUser(Request $request)
+    {
         $id = Auth::id();
         $data=$request->except('_token');
 

@@ -25,53 +25,53 @@ Route::get('/nosotros',
 
 
 Route::get('/iniciar-sesion',
-    [\App\Http\Controllers\sessionController::class, 'formlogin']
+    [\App\Http\Controllers\SessionController::class, 'formlogin']
 );
 Route::post('/iniciar-sesion',
-    [\App\Http\Controllers\sessionController::class, 'processlogin']
+    [\App\Http\Controllers\SessionController::class, 'processlogin']
 );
 Route::post('/cerrar-sesion',
-    [\App\Http\Controllers\sessionController::class, 'processlogout']
+    [\App\Http\Controllers\SessionController::class, 'processlogout']
 )->middleware('auth');
 
 
 
 //!blogController se encarga de las vistas del blog
 Route::get('/blog',
-    [\App\Http\Controllers\blogController::class, 'index']
+    [\App\Http\Controllers\BlogController::class, 'index']
 );
 Route::get('/blog/{id}',
-    [\App\Http\Controllers\blogController::class, 'show']
+    [\App\Http\Controllers\BlogController::class, 'show']
 )->whereNumber('id');
 
 
 //!adminBlogController se encarga de las vistas del adminBlog
 Route::get('/admin/blog',
-    [\App\Http\Controllers\adminBlogController::class, 'admin']
+    [\App\Http\Controllers\AdminBlogController::class, 'admin']
 )->middleware('auth');
 Route::get('/admin/blog/nuevaEntrada',
-    [\App\Http\Controllers\adminBlogController::class, 'createPost']
+    [\App\Http\Controllers\AdminBlogController::class, 'createPost']
 )->middleware('auth');
 Route::post('/admin/blog/nuevaEntrada',
-    [\App\Http\Controllers\adminBlogController::class, 'processPost']
+    [\App\Http\Controllers\AdminBlogController::class, 'processPost']
 )->middleware('auth');
 
 Route::get('admin/blog/{id}/borrar',
-    [\App\Http\Controllers\adminBlogController::class, 'deletePost']
+    [\App\Http\Controllers\AdminBlogController::class, 'deletePost']
 )->whereNumber('id')
 ->middleware('auth');
 
 Route::post('admin/blog/{id}/borrar',
-    [\App\Http\Controllers\adminBlogController::class, 'processDeletePost']
+    [\App\Http\Controllers\AdminBlogController::class, 'processDeletePost']
 )->whereNumber('id')
 ->middleware('auth');
 
 route::get('/admin/blog/{id}/editar',
-    [\App\Http\Controllers\adminBlogController::class, 'editPost']
+    [\App\Http\Controllers\AdminBlogController::class, 'editPost']
 )->whereNumber('id')
 ->middleware('auth');
 route::post('/admin/blog/{id}/editar',
-    [\App\Http\Controllers\adminBlogController::class, 'processEditPost']
+    [\App\Http\Controllers\AdminBlogController::class, 'processEditPost']
 )->whereNumber('id')
 ->middleware('auth');
 
@@ -81,39 +81,39 @@ route::post('/admin/blog/{id}/editar',
 
 //!noticiasController se encarga de las vistas de noticias
 Route::get('/noticias',
-    [\App\Http\Controllers\noticiasController::class, 'index']
+    [\App\Http\Controllers\NoticiasController::class, 'index']
 );
 Route::get('/noticias/{id}',
-    [\App\Http\Controllers\noticiasController::class, 'show']
+    [\App\Http\Controllers\NoticiasController::class, 'show']
 )->whereNumber('id');
 
 
 //!adminNoticiasController se encarga de las vistas del adminNoticias
 Route::get('/admin/noticias',
-    [\App\Http\Controllers\adminNoticiasController::class, 'admin']
+    [\App\Http\Controllers\AdminNoticiasController::class, 'admin']
 )->middleware('auth');
 Route::get('/admin/noticias/nuevaEntrada',
-    [\App\Http\Controllers\adminNoticiasController::class, 'createNoti']
+    [\App\Http\Controllers\AdminNoticiasController::class, 'createNoti']
 )->middleware('auth');
 Route::post('/admin/noticias/nuevaEntrada',
-    [\App\Http\Controllers\adminNoticiasController::class, 'processNoti']
+    [\App\Http\Controllers\AdminNoticiasController::class, 'processNoti']
 )->middleware('auth');
 
 Route::get('admin/noticias/{id}/borrar',
-    [\App\Http\Controllers\adminNoticiasController::class, 'deleteNoti']
+    [\App\Http\Controllers\AdminNoticiasController::class, 'deleteNoti']
 )->whereNumber('id')
 ->middleware('auth');
 Route::post('admin/noticias/{id}/borrar',
-    [\App\Http\Controllers\adminNoticiasController::class,'processDeleteNoti']
+    [\App\Http\Controllers\AdminNoticiasController::class,'processDeleteNoti']
 )->whereNumber('id')
 ->middleware('auth');
 
 route::get('/admin/noticias/{id}/editar',
-    [\App\Http\Controllers\adminNoticiasController::class, 'editNoti']
+    [\App\Http\Controllers\AdminNoticiasController::class, 'editNoti']
 )->whereNumber('id')
 ->middleware('auth');
 route::post('/admin/noticias/{id}/editar',
-    [\App\Http\Controllers\adminNoticiasController::class, 'processEditNoti']
+    [\App\Http\Controllers\AdminNoticiasController::class, 'processEditNoti']
 )->whereNumber('id')
 ->middleware('auth');
 

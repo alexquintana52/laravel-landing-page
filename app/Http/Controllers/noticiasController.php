@@ -6,16 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Noticia;
 
-class noticiasController extends Controller
+class NoticiasController extends Controller
 {
-    public function index(){
-
+    public function index()
+    {
         return view('noticias.home', [
             'noticiasPost' => Noticia::with('categoria_noticias')->get()
         ]);
     }
-        public function show(int $id){
-        return view('noticias.showPostNoti',[
+
+    public function show(int $id)
+    {
+            return view('noticias.showPostNoti',[
             'noticiasPost' => Noticia::findOrFail($id)
         ]);
     }

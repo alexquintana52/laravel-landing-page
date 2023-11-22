@@ -9,9 +9,10 @@ use App\Models\Noticia;
 use App\Models\Genero;
 use Illuminate\Support\Facades\Storage;
 
-class adminNoticiasController extends Controller
+class AdminNoticiasController extends Controller
 {
-    public function admin(){
+    public function admin()
+    {
 
         return view('admin.adminNoticias', [
             'noticiasPost' => Noticia::with('categoria_noticias', 'generos')->get()
@@ -19,7 +20,8 @@ class adminNoticiasController extends Controller
     }
 
 
-    public function createNoti(){
+    public function createNoti()
+    {
         return view('admin.crud_noticias.create',[
             'categoria_noticias' => Categoria_noticias::all(),
             'generos' => Genero::all()
@@ -27,7 +29,8 @@ class adminNoticiasController extends Controller
     }
 
 
-    public function processNoti(Request $request){
+    public function processNoti(Request $request)
+    {
 
         $data = $request->except('_token');
 
@@ -49,13 +52,15 @@ class adminNoticiasController extends Controller
         ->with('status.message', 'La noticia <b>'. e($data['titulo']) .'</b> fue creada con éxito');
     }
 
-    public function deleteNoti(int $id){
+    public function deleteNoti(int $id)
+    {
         return view('admin.crud_noticias.delete',[
             'noticiasPost' => Noticia::findOrFail($id)
         ]);
     }
 
-    public function processDeleteNoti(int $id){
+    public function processDeleteNoti(int $id)
+    {
         $noti = Noticia::findOrFail($id);
         $noti->generos()->detach();
         $noti->delete();
@@ -67,7 +72,8 @@ class adminNoticiasController extends Controller
         ->with('status.message', 'La noticia <b>'. e($noti->titulo) .'</b> fue borrada con éxito');
     }
 
-    public function editNoti(int $id){
+    public function editNoti(int $id)
+    {
         return view('admin.crud_noticias.update',[
             'noticiasPost' => Noticia::findOrFail($id),
             'categoria_noticias' => Categoria_noticias::all(),
@@ -75,7 +81,8 @@ class adminNoticiasController extends Controller
         ]);
     }
 
-    public function processEditNoti(Request $request, int $id){
+    public function processEditNoti(Request $request, int $id)
+    {
 
         $data = $request->except('_token');
         $noti = Noticia::findOrFail($id);
@@ -95,7 +102,5 @@ class adminNoticiasController extends Controller
         return redirect('/admin/noticias')
         ->with('status.message', 'La noticia <b>'. e($noti->titulo) .'</b> fue editada con éxito');
     }
-
-
 
 }

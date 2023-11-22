@@ -9,17 +9,20 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminServiciosController extends Controller
 {
-    public function admin(){
+    public function admin()
+    {
         return view('admin.adminServicios',[
             'servicios' => Servicios::all()
         ]);
     }
 
-    public function createServicio(){
+    public function createServicio()
+    {
         return view('admin.crud_servicios.create');
     }
 
-    public function processServicio(Request $request){
+    public function processServicio(Request $request)
+    {
         $data=$request->except('_token');
 
         $request -> validate( Servicios::$reglas, Servicios::$mensajesdeError );
@@ -34,13 +37,15 @@ class AdminServiciosController extends Controller
         ->with('status.message', 'El servicio <b>'. e($request->nombre) .'</b> fue creado con éxito');
     }
 
-    public function editServicio($id){
+    public function editServicio($id)
+    {
         return view('admin.crud_servicios.update', [
             'servicio' => Servicios::findOrFail($id)
         ]);
     }
 
-    public function processEditServicio(Request $request, $id){
+    public function processEditServicio(Request $request, $id)
+    {
         $data=$request->except('_token');
 
         $servicio = Servicios::findOrFail($id);
@@ -61,13 +66,15 @@ class AdminServiciosController extends Controller
         ->with('status.message', 'El servicio <b>'. e($request->nombre) .'</b> fue actualizado con éxito');
     }
 
-    public function deleteServicio(int $id){
+    public function deleteServicio(int $id)
+    {
         return view('admin.crud_servicios.delete',[
             'servicio' => Servicios::findOrFail($id)
         ]);
     }
 
-    public function processDeleteServicio(int $id){
+    public function processDeleteServicio(int $id)
+    {
         $servicio = Servicios::findOrFail($id);
         $servicio->delete();
 
