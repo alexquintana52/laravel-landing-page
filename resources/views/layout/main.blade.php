@@ -20,8 +20,8 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse text-center justify-content-center align-items-center pb-3 pb-lg-0" id="navbarSupportedContent">
-                <ul class="navbar-nav pt-4 py-lg-0 mb-lg-0 mx-auto ms-lg-5">
+            <div class="collapse navbar-collapse text-center justify-content-end align-items-center pb-3 pb-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav pt-4 py-lg-0 mb-lg-0 ms-lg-5 ms-auto">
                     <li class="nav-item">
                         <a class="nav-link ff-jetbrains text-white" href="{{ url('/') }}">Inicio</a>
                     </li>
@@ -31,37 +31,7 @@
                     <li class="nav-item">
                         <a class="nav-link ff-jetbrains text-white" href="{{ url('/blog') }}">Blog</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
-                    </li>
-                    @auth
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle ff-jetbrains text-white" href="#" role="button" data-bs-toggle="dropdown" >
-                                Administración
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/blog')}}">Admin Blog</a></li>
-                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/noticias')}}">Admin Noticias</a></li>
-                            </ul>
-                        </li>
-                    @endauth
                 </ul>
-                @auth
-                    <div class="nav-item">
-                        <form action="{{ url('/cerrar-sesion')}}" method="POST">
-                            @csrf
-                            <button class="btn btn-ennoia-outline me-0 me-lg-2">
-                                Cerrar Sesión
-                            </button>
-                        </form>
-                    </div>
-                @else
-                    <div>
-                        <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ url('/iniciar-sesion')}}">
-                        Iniciar Sesión
-                        </a>
-                    </div>
-                @endauth
             </div>
         </div>
     </nav>
