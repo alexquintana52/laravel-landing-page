@@ -13,7 +13,6 @@ class UsersController extends Controller
     public function show()
     {
         $id = Auth::id();
-<<<<<<< HEAD
         $user = User::findOrFail($id);
         $pagos = Pagos::where('user_id', $id)->get();
         $servicio = Pagos::where('servicio_id', $id)->first();
@@ -62,26 +61,19 @@ class UsersController extends Controller
     }
 
     public function cancelarServicioAction(int $id, Request $request)
-{
-    $data = $request->only('servicio_id');
+    {
+        $data = $request->only('servicio_id');
 
-    $user = User::findOrFail($id);
+        $user = User::findOrFail($id);
 
-    // Verificar si el campo servicio_id está presente antes de actualizar
-    if ($request->has('servicio_id')) {
-        $user->update(['servicio_id' => $request->servicio_id]);
+        // Verificar si el campo servicio_id está presente antes de actualizar
+        if ($request->has('servicio_id')) {
+            $user->update(['servicio_id' => $request->servicio_id]);
+        }
+
+        return redirect('/mi-perfil')
+            ->with('status.message', 'El usuario <b>'. e($user->nombre) .'</b> fue actualizado con éxito');
     }
 
-    return redirect('/mi-perfil')
-        ->with('status.message', 'El usuario <b>'. e($user->nombre) .'</b> fue actualizado con éxito');
-}
-
-=======
-        return view('users.show',[
-            'user' => User::findOrFail($id)
-        ]);
-    }
-
->>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 
 }

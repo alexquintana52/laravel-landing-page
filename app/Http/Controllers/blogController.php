@@ -9,10 +9,25 @@ use App\Models\blog;
 class BlogController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        $buscarParametro = [
+            'titulo' => $request->query('titulo'),
+            'categoria_id' => $request->query('categoria_id'),
+        ];
+
+        $consulta = Blog::with(['categoria_blog']);
+
+        if($buscarParametro['titulo'] !== null){
+            $consulta -> where('titulo', 'LIKE', '%' . $buscarParametro['titulo'] . '%');
+        }
+
+
+        /** @var LengthAwarePaginator $consulta  */
+        $blogPost = $consulta->paginate(2)->withQueryString();
+
         return view('blog.home',[
-            'blogPost' => Blog::with('categoria_blog')->get()
+            'blogPost' => $blogPost,
         ]);
     }
 

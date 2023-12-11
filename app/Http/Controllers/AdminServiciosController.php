@@ -73,10 +73,6 @@ class AdminServiciosController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
-
-
-=======
     public function processDeleteServicio(int $id)
     {
         $servicio = Servicios::findOrFail($id);
@@ -89,6 +85,6 @@ class AdminServiciosController extends Controller
         return redirect('/admin/servicios')
         ->with('status.message', 'El servicio <b>'. e($servicio->nombre) .'</b> fue borrado con éxito');
     }
->>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 }
+
 

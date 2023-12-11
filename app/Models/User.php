@@ -89,7 +89,6 @@ class User extends Authenticatable
         'password.max' => 'El campo password debe tener como maximo 50 caracteres',
     ];
 
-<<<<<<< HEAD
     public static $updateReglas = [
         'email' => 'required|email',
         'password' => 'max : 50',
@@ -101,12 +100,9 @@ class User extends Authenticatable
         'password.max' => 'El campo password debe tener como maximo 50 caracteres',
     ];
 
-=======
->>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
     public function servicosPorUsuario():BelongsTo
     {
         return $this->belongsTo(Servicios::class, 'servicio_id', 'servicio_id');
     }
 
 }
-

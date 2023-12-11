@@ -27,7 +27,6 @@ class SessionController extends Controller
 
         //$url = (Auth::user()->rol == '1') ? '/admin/blog' : '/blog';
 
-<<<<<<< HEAD
         return redirect('/validar-usuario')
         ->with('status.message', 'Inicio de sesión exitoso, hola <b>'. Auth::user()->name.'</b>');
     }
@@ -35,10 +34,6 @@ class SessionController extends Controller
     public function validateUser()
     {
         echo "Hola desde el middleware";
-=======
-        return redirect('/')
-        ->with('status.message', 'Inicio de sesión exitoso, hola <b>'. Auth::user()->name.'</b>');
->>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
     }
 
     public function processlogout( Request $request)

@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
 $ultimoPago = $pagos->sortByDesc('created_at')->first();
-=======
->>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 ?>
 @extends('layout.main')
 
@@ -11,7 +8,6 @@ $ultimoPago = $pagos->sortByDesc('created_at')->first();
 @section('content')
 
 
-<<<<<<< HEAD
 
 <section class="container my-5">
     <div class="row">
@@ -97,53 +93,6 @@ $ultimoPago = $pagos->sortByDesc('created_at')->first();
             @endif
         </div>
     </div>
-=======
-<section class="container my-5">
-    <div class="col-md-4">
-        <h1 >
-            Mi perfil
-        </h1>
-    </div>
-    <div class="my-4 col-md-4">
-        <h2>
-            Datos
-        </h2>
-        <p>
-            {{ $user->name }}
-        </p>
-        <p>
-            {{ $user->email }}
-        </p>
-    </div>
-
-    <div class="my-4 col-md-4">
-        <h2>
-            Suscrición
-        </h2>
-        @if (isset($user->servicosPorUsuario->nombre))
-            <p>
-                {{ isset($user->servicosPorUsuario->nombre) ? $user->servicosPorUsuario->nombre : "" }}
-            </p>
-            <p>
-                {{ isset($user->servicosPorUsuario->descripcion) ? $user->servicosPorUsuario->descripcion : "" }}
-            </p>
-            <img src="{{ asset('storage/' . $user->servicosPorUsuario->img) }}" alt="{{ $user->servicosPorUsuario->descripcion_img}}" class="img-fluid rounded">
-
-            <a href="/servicios" class="d-inline-block btn-ennoia my-4 text-center" >
-                Modificar
-            </a>
-        @else
-            <p class="mb-2 text-danger">
-                No tienes suscripción
-            </p>
-            <a href="/servicios" class="d-inline-block btn-ennoia my-4 text-center" >
-                Suscribirme
-            </a>
-        @endif
-
-    </div>
-
->>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 
 </section>
 
