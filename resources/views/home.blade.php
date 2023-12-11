@@ -82,8 +82,6 @@
           <h3 class="mb-4 text-ennoia">Codi</h3>
           <p>Conocé a tu mascota preferida para seguir aprendiendo. Codiguito será tu guía y fiel compañero en tu camino de aprendizaje.</p>
         </div>
-        <h3 class="mb-4 text-ennoia">Codi</h3>
-        <p>Conocé a tu mascota preferida para seguir aprendiendo. Codi será tu guía y fiel compañero en tu camino de aprendizaje.</p>
       </div>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="bg-ennoia-dark-2 py-5 px-4 p-md-5 rounded-3 text-center h-100">
