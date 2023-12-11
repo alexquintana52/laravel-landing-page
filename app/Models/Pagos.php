@@ -15,13 +15,13 @@ class Pagos extends Model
     protected $table = 'pagos';
 
     protected $fillable = [
+        'servicio_id',
         'user_id',
         'collection_id',
         'collection_status',
         'merchant_order_id',
         'site_id',
         'preference_id',
-        'servicio_id', // Agrega este campo
         'payment_type',
     ];
 
