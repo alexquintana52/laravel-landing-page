@@ -1,11 +1,12 @@
 * text=auto eol=lf
-
 *.blade.php diff=html
 *.css diff=css
 *.html diff=html
 *.md diff=markdown
 *.php diff=php
-
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+ruta/al/archivo/lopez-juan_quintana-alex.rar filter=lfs diff=lfs merge=lfs -text
+https://github.com/alexquintana52/laravel-landing-page.git filter=lfs diff=lfs merge=lfs -text
+lopez-juan_quintana-alex.rar filter=lfs diff=lfs merge=lfs -text

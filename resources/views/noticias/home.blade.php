@@ -4,8 +4,9 @@
 
 @section('content')
 
-    <section class="notices-home">
-        <div class="container">
+<section class="notices-home">
+    <div class="container">
+
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
                     <h1 class="fw-bold text-ennoia ff-jetbrains">Noticias y Novedades</span></h1>
@@ -20,15 +21,22 @@
     </section>
 
     <h2 class="container my-5 text-center"><span class="text-ennoia">|</span> Noticias Recientes</h2>
-
     <section class="container mb-5">
+        <div class="pb-4">
+            <form action="{{ url('/noticias') }}" method="GET">
+                <!-- Search form -->
+                <label for="titulo"></label>
+                <input class="form-control" type="text" name="titulo" placeholder="Search" aria-label="Search">
+            </form>
+        </div>
         <div class="row gy-4">
 
             @foreach ($noticiasPost as $posteo)
                 <div class="col-12 col-md-6 col-lg-4">
                     <a href="{{ url('/noticias/' . $posteo->id) }}">
                         <div class="card bg-ennoia-dark border-0 rounded-4 overflow-hidden text-white notice-card">
-                            <img src="{{ url('img/home-bg-img.jpg') }}" class="rounded-3 card-img-top" alt="...">
+                            <img src="{{ asset('storage/' . $posteo->img) }}" class="rounded-3 card-img-top" alt="...">
+
                             <div class="card-body text-left px-0">
                                 <h2 class="h4 py-2 card-title fw-bold">{{ $posteo->titulo }}</h2>
                                 <div class="d-flex justify-content-between">
@@ -42,6 +50,8 @@
                     </a>
                 </div>
             @endforeach
+
+            {{ $noticiasPost->links()}}
 
         </div>
     </section>

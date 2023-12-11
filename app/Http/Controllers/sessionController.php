@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\models\User;
 
-class sessionController extends Controller
+class SessionController extends Controller
 {
     public function formlogin()
     {
@@ -27,8 +27,13 @@ class sessionController extends Controller
 
         //$url = (Auth::user()->rol == '1') ? '/admin/blog' : '/blog';
 
-        return redirect('/')
-        ->with('status.message', 'Inicio de sesión exitoso, hola '. Auth::user()->name);
+        return redirect('/validar-usuario')
+        ->with('status.message', 'Inicio de sesión exitoso, hola <b>'. Auth::user()->name.'</b>');
+    }
+
+    public function validateUser()
+    {
+        echo "Hola desde el middleware";
     }
 
     public function processlogout( Request $request)
@@ -37,6 +42,6 @@ class sessionController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/')
-        ->with('status.message', 'Cierre de sesión exitoso. Hasta luego');
+        ->with('status.message', 'Cierre de sesión exitoso. ¡Hasta luego!');
     }
 }

@@ -7,7 +7,6 @@
     <div class="container my-5">
         <div class="row justify-content-center flex-column align-items-center">
             <div class="col-12 col-md-9 col-lg-6">
-                <?php echo $noticiasPost->img; ?>
                 @if ($noticiasPost->img !== null)
                     <img src="{{ asset('storage/' . $noticiasPost->img) }}" class="img-fluid" alt="{{ $noticiasPost->descripcion_img }}">
                 @else

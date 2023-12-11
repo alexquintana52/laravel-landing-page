@@ -6,6 +6,9 @@
  * @var Noticias $noticiasPost
  */
 use app\model\Noticias;
+use app\model\Categoria_noticias;
+use app\model\Genero;
+use illuminate\database\eloquent\Collection;
 ?>
 
 @extends('layout.main')
@@ -111,6 +114,13 @@ use app\model\Noticias;
                 @enderror
             </div>
             <div class="mb-3">
+                <div class="mb-2">
+                    @if ($noticiasPost->img)
+                        <img src="{{asset('storage/'.$noticiasPost->img)}}" alt="{{$noticiasPost->descripcion_img }}"  class="img-fluid"
+                    @else
+                        <p>no hay imagen</p>
+                    @endif
+                </div>
                 <label for="descripcion_img" class="form-label">Descripción portada</label>
                 <input type="text" id="descripcion_img" name="descripcion_img"
                 class="form-control input-admin @error('descripcion_img') is-invalid @enderror"
@@ -142,6 +152,26 @@ use app\model\Noticias;
                     </p>
                 @enderror
             </div>
+
+            <fieldset>
+                <legend>Géneros</legend>
+                @foreach ($generos as $value)
+                <label class="mx-2">
+                    <input
+                    type="checkbox"
+                    name="generos[]"
+                    value="{{$value->genero_id}}"
+                    class="form-check-input"
+                    @checked(in_array($value->genero_id, old('generos', $noticiasPost->generos->pluck('genero_id')->toArray())))
+                    >
+                    <span class="form-check-label">
+                        {{$value->nombre}}
+                    </span>
+                </label>
+                @endforeach
+
+            </fieldset>
+
             <button type="submit" class="btn btn-primary mt-5 py-2 px-5 mx-auto d-flex justify-content-center">Editar</button>
         </form>
     </div>

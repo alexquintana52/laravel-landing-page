@@ -19,6 +19,8 @@
                     <th class="bg-dark text-white p-3">Noticia</th>
                     <th class="bg-dark text-white p-3">Categoria</th>
                     <th class="bg-dark text-white p-3">Fecha</th>
+                    <th class="bg-dark text-white p-3">Imagenes</th>
+                    <th class="bg-dark text-white p-3">Generos</th>
                     <th class="bg-dark text-white p-3">Acciones</th>
                 </tr>
             </thead>
@@ -29,6 +31,20 @@
                         <td class="bg-dark text-white p-3">{{ $posteo->noticia }}</td>
                         <td class="bg-dark text-white p-3">{{ $posteo->categoria_noticias->nombre }}</td>
                         <td class="bg-dark text-white p-3">{{ $posteo->fecha }}</td>
+                        <td class="bg-dark text-white p-3">
+                            <img src="{{ asset('storage/' . $posteo->img) }}" alt="{{ $posteo->descripcion_img}}" class="img-fluid rounded">
+                        </td>
+                        <td class="bg-dark text-white p-3">
+                            @forelse ( $posteo->generos as $genero )
+                                <span class="badge bg-secondary px-4 py-2">
+                                    {{ $genero->nombre }}
+                                </span>
+                            @empty
+                                <span class="badge bg-secondary px-4 py-2">
+                                    No tiene generos asociados
+                                </span>
+                            @endforelse
+                        </td>
                         <td class="bg-dark text-white p-3">
                             <div class="d-flex gap-2">
                                 <a href="{{ url('/noticias/' . $posteo->id) }}" class="btn btn-small btn-primary"
@@ -43,6 +59,8 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{ $noticiasPost->links()}}
     </div>
 
 @endsection

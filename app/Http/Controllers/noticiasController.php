@@ -11,7 +11,7 @@ class noticiasController extends Controller
     public function index(){
 
         return view('noticias.home', [
-            'noticiasPost' => Noticia::with('categoria_noticias')->get()
+            'noticiasPost' => Noticia::with('categoria_noticias')->paginate(2)
         ]);
     }
         public function show(int $id){
@@ -20,3 +20,4 @@ class noticiasController extends Controller
         ]);
     }
 }
+

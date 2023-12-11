@@ -16,14 +16,13 @@
                             {{ $message }}
                         </p>
                     @enderror
-    
+                    <label for="password" class="form-label ">Contraseña</label>
                     <input type="password" id="password" name="password" class="form-control input-ennoia" placeholder="Contraseña" autocomplete="off">
                     @error('password')
                         <p class="text-danger">
                             {{ $message }}
                         </p>
                     @enderror
-    
                 <button class="input-btn-ennoia fw-semibold form-control">Ingresar</button>
             </form>
         </div>
