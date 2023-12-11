@@ -8,8 +8,7 @@
 
     <div class="container my-5">
 
-        <h1 class="mb-5 text-center">Admin Noticias</h1>
-
+        <h1 class="mb-5 text-center">Admin Usuarios</h1>
         <table class="table overflow-scroll">
             <thead>
                 <tr>
@@ -17,7 +16,6 @@
                     <th class="bg-dark text-white p-3">Email</th>
                     <th class="bg-dark text-white p-3">Rol</th>
                     <th class="bg-dark text-white p-3 text-center">Subscripciones</th>
-                    <th class="bg-dark text-white p-3"></th>
                 </tr>
             </thead>
             <div>
@@ -28,17 +26,23 @@
                         <td class="bg-dark text-white p-3">{{ $dato->name }}</td>
                         <td class="bg-dark text-white p-3">{{ $dato->email }}</td>
                         <td class="bg-dark text-white p-3">{{ $dato->rol }}</td>
-                        <td class="bg-dark text-white p-3 text-center">{{ $dato->servicio_id}}</td>
-                        <td class="bg-dark text-white p-3">
-                            <div class="d-flex gap-2">
-                                <a href="{{ url('/usuarios/' . $dato->id) }}" class=" d-inline-block btn-ennoia"
-                                    target="_blank">Ver</a>
-                            </div>
+                        <td class="bg-dark text-white p-3 text-center">
+                            @if (isset($dato->servicosPorUsuario->nombre))
+                                    <span class="badge bg-success px-4 py-2">
+                                        {{$dato->servicosPorUsuario->nombre }}
+                                    </span>
+                            @else
+                                <span class="badge bg-danger px-4 py-2">
+                                    No tiene servicios asociados
+                                </span>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        {{ $user->links()}}
     </div>
 
 @endsection

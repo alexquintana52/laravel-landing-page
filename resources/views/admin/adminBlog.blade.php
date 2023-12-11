@@ -48,6 +48,8 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{ $blogPost->links()}}
     </div>
 
 @endsection

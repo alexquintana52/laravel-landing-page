@@ -16,28 +16,31 @@ class ServiciosSeeder extends Seeder
         DB::table('servicios')->insert([
             [
                 "servicio_id"=>"1",
-                "nombre"=>"Servicio 1",
-                "descripcion"=>"Descripcion del servicio 1",
-                "img"=>"imagenServicios/1.jpg",
+                "nombre"=>"Servicio Basico",
+                "descripcion"=>"Acceso completo a los módulos, Unidades y lecciones esenciales de aprendizaje",
+                "img"=>"imagagenServicios/jXx1mmOWjaAQ2wDZOPLtxPJ1MUahNqgHNKqUDYHM.jpg",
                 "descripcion_img"=>"imagen del servicio 1",
+                "precio"=>"2500",
                 "created_at"=> now(),
                 "updated_at"=> now()
             ],
             [
                 "servicio_id"=>"2",
-                "nombre"=>"Servicio 2",
-                "descripcion"=>"Descripcion del servicio 2",
-                "img"=>"imagenServicios/2.jpg",
+                "nombre"=>"Servicio estándar",
+                "descripcion"=>"Accede a actividades interactivas adicionales para reforzar lo aprendido.",
+                "img"=>"imagagenServicios/dDVT7ySsmM7j747FJkYIx9xsG7lG7RxlQ77qrlUz.jpg",
                 "descripcion_img"=>"imagen del servicio 2",
+                "precio"=>"5000",
                 "created_at"=> now(),
                 "updated_at"=> now()
             ],
             [
                 "servicio_id"=>"3",
-                "nombre"=>"Servicio 3",
-                "descripcion"=>"Descripcion del servicio 3",
-                "img"=>"imagenServicios/3.jpg",
+                "nombre"=>"Servicio full",
+                "descripcion"=>"Acceso ilimitado a todos los módulos, unidades y lecciones disponibles en la aplicación.",
+                "img"=>"imagagenServicios/Z6J3S3k7zDiXbWYXUvRVmtSyfhy1yZTrRyJmb9zb.jpg",
                 "descripcion_img"=>"imagen del servicio 3",
+                "precio"=>"10000",
                 "created_at"=> now(),
                 "updated_at"=> now()
             ]

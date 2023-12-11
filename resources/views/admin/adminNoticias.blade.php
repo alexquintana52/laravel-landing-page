@@ -35,11 +35,15 @@
                             <img src="{{ asset('storage/' . $posteo->img) }}" alt="{{ $posteo->descripcion_img}}" class="img-fluid rounded">
                         </td>
                         <td class="bg-dark text-white p-3">
-                            @foreach ($posteo->generos as $genero)
-                            <span class="badge bg-secondary">
-                                {{ $genero->nombre }}
-                            </span>
-                            @endforeach
+                            @forelse ( $posteo->generos as $genero )
+                                <span class="badge bg-secondary px-4 py-2">
+                                    {{ $genero->nombre }}
+                                </span>
+                            @empty
+                                <span class="badge bg-secondary px-4 py-2">
+                                    No tiene generos asociados
+                                </span>
+                            @endforelse
                         </td>
                         <td class="bg-dark text-white p-3">
                             <div class="d-flex gap-2">
@@ -55,6 +59,8 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{ $noticiasPost->links()}}
     </div>
 
 @endsection

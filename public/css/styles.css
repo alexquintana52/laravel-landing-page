@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+/* Option 2: Import via CSS */
 
 /*======| Variables |====== */
 
@@ -7,6 +8,10 @@
 
   --clr-primary: #b6e326;
   --clr-primary-hover: #95b823;
+    --delete-color: #F02323;
+    --delete-color-hover: #c40b0b;
+    --update-color: #F0E636;
+    --update-color-hover: #cac21d;
   --clr-bg-dark: #131f2b;
   --clr-bg-dark-2: #0d151d;
   --clr-bg-dark-light: #1c2c3b;
@@ -27,6 +32,20 @@
   font-family: var(--ff-manrope);
 }
 
+.mensajes{
+    position: absolute;
+    top: 50;
+    max-width: 300px;
+    right:10%;
+    z-index: 1000;
+    border: var(--clr-primary) 2px solid;
+    color:var(--clr-bg-dark-light);
+    background-color: var(--clr-primary);
+    font-weight: 500;
+}
+i{
+    font-size: 20px;
+}
 html {
   scroll-padding-top: 76px;
 }
@@ -95,7 +114,7 @@ h5,h6 {
   font-family: var(--ff-jetbrains);
   color: var(--clr-primary);
   border: 2px solid var(--clr-primary);
-  border-radius: 5px;
+  border-radius: 25px;
   padding: 5px 10px;
   transition: 0.2s;
 }
@@ -120,6 +139,54 @@ h5,h6 {
 
 .btn-ennoia:hover {
   background-color: var(--clr-primary-hover);
+  color:var(--clr-light-100)
+}
+
+.btn-ennoia-delete {
+  background-color: var(--delete-color);
+  color: var(--clr-font-dark);
+  font-family: var(--ff-jetbrains);
+  font-weight: 600;
+  outline: 0;
+  border: 0;
+  padding: 8px 35px;
+  border-radius: 100px;
+}
+
+.btn-ennoia-delete:hover {
+  background-color: var(--delete-color-hover);
+  color:var(--clr-light-100)
+}
+
+.btn-ennoia {
+  background-color: var(--clr-primary);
+  color: var(--clr-font-dark);
+  font-family: var(--ff-jetbrains);
+  font-weight: 600;
+  outline: 0;
+  border: 0;
+  padding: 8px 35px;
+  border-radius: 100px;
+}
+
+.btn-ennoia:hover {
+  background-color: var(--clr-primary-hover);
+  color:var(--clr-light-100)
+}
+
+.btn-ennoia-update {
+  background-color: var(--update-color);
+  color: var(--clr-font-dark);
+  font-family: var(--ff-jetbrains);
+  font-weight: 600;
+  outline: 0;
+  border: 0;
+  padding: 8px 35px;
+  border-radius: 100px;
+}
+
+.btn-ennoia-update:hover {
+  background-color: var(--update-color-hover);
   color:var(--clr-light-100)
 }
 
@@ -259,10 +326,12 @@ h5,h6 {
 .logo-ennoia {
   width: 65px;
 }
-
+.borde-ennoia{
+    border-color: var(--clr-primary);
+}
 .input-ennoia {
   max-width: 512px;
-  border-radius: 100px;
+  dorder-radius: 100px;
   margin-bottom: 20px;
   padding: 12px 25px;
   border: 2px solid var(--clr-primary);

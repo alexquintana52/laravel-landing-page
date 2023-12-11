@@ -6,6 +6,9 @@
  * @var Noticias $noticiasPost
  */
 use app\model\Noticias;
+use app\model\Categoria_noticias;
+use app\model\Genero;
+use illuminate\database\eloquent\Collection;
 ?>
 
 @extends('layout.main')
@@ -149,6 +152,26 @@ use app\model\Noticias;
                     </p>
                 @enderror
             </div>
+
+            <fieldset>
+                <legend>Géneros</legend>
+                @foreach ($generos as $value)
+                <label class="mx-2">
+                    <input
+                    type="checkbox"
+                    name="generos[]"
+                    value="{{$value->genero_id}}"
+                    class="form-check-input"
+                    @checked(in_array($value->genero_id, old('generos', $noticiasPost->generos->pluck('genero_id')->toArray())))
+                    >
+                    <span class="form-check-label">
+                        {{$value->nombre}}
+                    </span>
+                </label>
+                @endforeach
+
+            </fieldset>
+
             <button type="submit" class="btn btn-primary mt-5 py-2 px-5 mx-auto d-flex justify-content-center">Editar</button>
         </form>
     </div>
