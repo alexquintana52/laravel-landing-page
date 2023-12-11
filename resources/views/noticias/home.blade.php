@@ -4,8 +4,9 @@
 
 @section('content')
 
-    <section class="notices-home">
-        <div class="container">
+<section class="notices-home">
+    <div class="container">
+
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
                     <h1 class="fw-bold text-ennoia ff-jetbrains">Noticias y Novedades</span></h1>
@@ -20,8 +21,14 @@
     </section>
 
     <h2 class="container my-5 text-center"><span class="text-ennoia">|</span> Noticias Recientes</h2>
-
     <section class="container mb-5">
+        <div class="pb-4">
+            <form action="{{ url('/noticias') }}" method="GET">
+                <!-- Search form -->
+                <label for="titulo"></label>
+                <input class="form-control" type="text" name="titulo" placeholder="Search" aria-label="Search">
+            </form>
+        </div>
         <div class="row gy-4">
 
             @foreach ($noticiasPost as $posteo)
@@ -43,6 +50,8 @@
                     </a>
                 </div>
             @endforeach
+
+            {{ $noticiasPost->links()}}
 
         </div>
     </section>

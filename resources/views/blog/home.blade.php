@@ -18,12 +18,19 @@
     <h2 class="container my-5 text-center"><span class="text-ennoia">|</span> Posteos Recientes</h2>
 
     <section class="container my-5">
+        <div class="pb-4">
+            <form action="{{ url('/blog') }}" method="GET" >
+                <!-- Search form -->
+                <label for="titulo"></label>
+                <input class="form-control" type="text" name="titulo" placeholder="Search" aria-label="Search">
+            </form>
+        </div>
         <div class="row gy-4">
 
             @foreach ($blogPost as $posteo)
                 <div class="col-12 col-md-6 col-lg-4">
                     <a href="{{ url('/blog/' . $posteo->id) }}">
-                        <div class="card bg-ennoia-dark-2 rounded-4 p-3 overflow-hidden text-white blog-card"> 
+                        <div class="card bg-ennoia-dark-2 rounded-4 p-3 overflow-hidden text-white blog-card">
                             <img src="{{ url('/storage/' . $posteo->img) }}" class="rounded-3 card-img-top" alt="...">
                             <div class="card-body text-left px-0">
                                 <h2 class="h4 py-2 card-title fw-bold">{{ $posteo->titulo }}</h2>
@@ -38,6 +45,7 @@
                     </a>
                 </div>
             @endforeach
+            {{ $blogPost->links()}}
 
         </div>
     </section>

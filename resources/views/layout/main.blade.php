@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ url('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -34,7 +35,18 @@
                     <li class="nav-item">
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/servicios') }}">Servicios</a>
+                    </li>
                     @auth
+
+                    <li class="nav-item">
+                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/mi-perfil') }}">Mi perfil</a>
+                    </li>
+                    @endauth
+
+                    @auth
+                        @if (auth()->user()->rol == 'admin')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle ff-jetbrains text-white" href="#" role="button" data-bs-toggle="dropdown" >
                                 Administración
@@ -42,8 +54,12 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/blog')}}">Admin Blog</a></li>
                                 <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/noticias')}}">Admin Noticias</a></li>
+                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/servicios')}}">Admin Servicios</a></li>
+                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/usuarios')}}">Admin Usuarios</a></li>
+                                <li><a class="dropdown-item ff-jetbrains" href="{{ url('/admin/estadisticas')}}">Estadisticas</a></li>
                             </ul>
                         </li>
+                        @endif
                     @endauth
                 </ul>
                 @auth
@@ -57,6 +73,11 @@
                     </div>
                 @else
                     <div>
+                        <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ url('/registrarse')}}">
+                        Registrarse
+                        </a>
+                    </div>
+                    <div>
                         <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ url('/iniciar-sesion')}}">
                         Iniciar Sesión
                         </a>
@@ -69,11 +90,11 @@
     <main>
         @if (\Session::has('status.message'))
             <div class="container">
-                <div class="alert alert-success">
+                <div class="alert alert-dismissible fade show mensajes" role="alert">
                     {!! \Session::get('status.message') !!}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
-
         @endif
 
         @yield('content')

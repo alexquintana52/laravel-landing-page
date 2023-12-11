@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * App\Models\Noticia
@@ -89,5 +90,16 @@ class Noticia extends Model
     public function categoria_noticias():BelongsTo
     {
         return $this->belongsTo(Categoria_noticias::class, 'categoria_id', 'categoria_id');
+    }
+
+    public function generos():BelongsToMany
+    {
+        return $this->belongsToMany(Genero::class,
+        'noticias_x_genero',
+        'noticia_id',
+        'genero_id',
+        'id',
+        'genero_id'
+        );
     }
 }
