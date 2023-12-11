@@ -27,8 +27,11 @@
                     <h2 class="h4 py-2 card-title fw-bold text-ennoia">{{ $servicio->nombre }}</h2>
                     <p class="card-text">{{ $servicio->descripcion }}</p>
                 </div>
+                <div class="card-footer text-center">
+                    <p class="py-2 card-title fw-bold text-ennoia h2">Precio: ${{ $servicio->precio }}</p>
+                </div>
                 @auth
-                <div class="container my-5">
+                <div class="container my-2">
 
                     <form action="{{ url('servicios') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -48,26 +51,24 @@
                                 </p>
                             @enderror
                         </div>
-
-                        <button
-                        @if ($user->servicio_id == $servicio->servicio_id)
-                            type="button"
-                        @else
-                            type="submit"
-                        @endif
-
-                        class="btn btn-ennoia-update mt-5 py-2 px-5 mx-auto d-flex justify-content-center">
+                        <div class="text-center">
                             @if($user->servicio_id == $servicio->servicio_id )
+                            <button class="btn-ennoia d-inline-block mb-3 mt-4" type="button">
                                 <i class="fa-solid fa-check"></i>
+                            </button>
                             @else
-                                adquirir
+                                <a href="{{ url('/pagoServicio/'. $servicio->servicio_id ) }}" class="btn-ennoia d-inline-block mb-3 mt-4">
+                                    @if($user->servicio_id == $servicio->servicio_id )
+                                    <i class="fa-solid fa-check"></i>
+                                    @else
+                                        adquirir
+                                    @endif
+                                </a>
                             @endif
-                        </button>
+                        </div>
+
+
                     </form>
-                </div>
-                @else
-                <div class="text-center">
-                    <a href="{{ url('/iniciar-sesion') }}" class="btn-ennoia d-inline-block mb-3 mt-4">Adquirir</a>
                 </div>
                 @endauth
 
