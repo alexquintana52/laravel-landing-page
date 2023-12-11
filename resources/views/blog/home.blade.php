@@ -4,12 +4,12 @@
 
 @section('content')
 
-    <section class="blog-home">
+    <section class="bg-ennoia">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
                     <h1 class="fw-bold m-0 text-ennoia ff-jetbrains">Nuestro Blog</span></h1>
-                    <p class="my-4">Aquí, sumergirás tus sentidos en un océano de información, consejos y novedades sobre el fascinante mundo de la tecnología. Nuestro objetivo es acompañarte en tu viaje de descubrimiento, ayudándote a navegar por los avances más recientes, adquirir nuevas habilidades y mantenerte actualizado en este emocionante campo. Prepárate para explorar, aprender e inspirarte mientras te adentras en el universo digital.</p>
+                    <p class="my-4">Sumerge tus sentidos en un océano de información, consejos y novedades sobre el fascinante mundo de la tecnología. Nuestro objetivo es acompañarte en tu viaje de descubrimiento, ayudándote a navegar por los avances más recientes, adquirir nuevas habilidades y mantenerte actualizado en este emocionante campo. Prepárate para explorar, aprender e inspirarte mientras te adentras en el universo digital.</p>
                 </div>
             </div>
         </div>

@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
-/* Option 2: Import via CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /*======| Variables |====== */
 
@@ -20,8 +18,7 @@
   --clr-light-100: #f2f2f2;
   --clr-font-dark: #131f2b;
 
-  --ff-manrope: 'Manrope', sans-serif;
-  --ff-jetbrains: 'JetBrains Mono', sans-serif;
+  --ff-poppins: 'Poppins', sans-serif;
 
 }
 
@@ -29,7 +26,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: var(--ff-manrope);
+  font-family: var(--ff-poppins);
 }
 
 .mensajes{
@@ -70,26 +67,56 @@ p {
   margin: 0;
 }
 
-h1,h2,
-h3,h4,
-h5,h6 {
-  font-family: var(--ff-jetbrains);
+.bg-ennoia {
+  min-height: 70vh;
+  background: linear-gradient(to top,#131f2b 0,rgba(13, 21, 29, 0) 60%,#0d151d 100%),
+  url('/img/bg-image/bg-ennoia.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.ff-manrope {
-  font-family: var(--ff-manrope);
+.bg-ennoia-2 {
+  min-height: 70vh;
+  background: linear-gradient(to top,#131f2b 0,rgba(13, 21, 29, 0) 60%,#131f2b 100%),
+  url('/img/bg-image/bg-ennoia-2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.ff-jetbrains {
-  font-family: var(--ff-jetbrains);
-}
+/* .bg-ennoia {
+  width: 100%;
+  min-height: 70vh;
+  background-image: url('/img/bg-image/bg-ennoia-2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+} */
+
+/* .bg-ennoia-2 {
+  width: 100%;
+
+  background-image: url('/img/bg-image/bg-ennoia-3.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+} */
 
 .text-ennoia {
   color: var(--clr-primary);
 }
 
-.bg-ennoia {
-  background-color: var(--clr-primary);
+.bg-lime {
+  background-color: var(--clr-primary-hover);
 }
 
 .bg-ennoia-dark {
@@ -131,10 +158,11 @@ h5,h6 {
   color: var(--clr-font-dark);
   font-family: var(--ff-jetbrains);
   font-weight: 600;
+  font-size: 14px;
   outline: 0;
   border: 0;
   padding: 8px 35px;
-  border-radius: 100px;
+  border-radius: 5px;
 }
 
 .btn-ennoia:hover {
@@ -195,7 +223,8 @@ h5,h6 {
   border: 2px solid var(--clr-bg-dark-light);
   border-radius: 5px;
   padding: 10px 20px;
-  font-weight: 800;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .btn-last:hover {
@@ -238,9 +267,9 @@ h5,h6 {
 /*======| Home Section |====== */
 
 .home-content {
-  min-height: calc(100vh - 76px);
-  background: linear-gradient(to top,#131f2b 0,rgba(13, 21, 29, 0.7) 60%,#0d151d 100%),
-  url('../img/home-img.jpg');
+  min-height: 70vh;
+  background: linear-gradient(to top,#131f2b 0,rgba(13, 21, 29, 0) 60%,#0d151d 100%),
+  url('/img/bg-image/bg-ennoia.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -251,8 +280,8 @@ h5,h6 {
 }
 
 .home-bg-img {
-  background: linear-gradient(rgba(13, 21, 29, 0.7), rgba(13, 21, 29, 0.7)),
-  url('../img/home-bg-img.jpg');
+  background: linear-gradient(to top,#131f2b 0,rgba(13, 21, 29, 0) 60%,#131f2b 100%),
+  url('/img/bg-image/bg-ennoia.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -331,12 +360,11 @@ h5,h6 {
 }
 .input-ennoia {
   max-width: 512px;
-  dorder-radius: 100px;
+  border-radius: 5px;
   margin-bottom: 20px;
-  padding: 12px 25px;
+  padding: 12px 15px;
   border: 2px solid var(--clr-primary);
   background-color: transparent;
-  color: var(--clr-light-300);
 }
 
 .input-ennoia::placeholder {
@@ -345,11 +373,11 @@ h5,h6 {
 
 .input-ennoia:focus {
   background-color: transparent;
-  color: var(--clr-light-300);
+  color: var(--clr-light-200);
 }
 
 .input-admin {
-  border-radius: 8px;
+  border-radius: 5px;
   margin-bottom: 20px;
   padding: 12px 25px;
   border: 2px solid var(--clr-primary);
@@ -368,12 +396,12 @@ h5,h6 {
 
 .text-area-admin {
   height: 320px;
-  border-radius: 8px;
+  border-radius: 5px;
   margin-bottom: 20px;
   padding: 12px 25px;
   border: 2px solid var(--clr-primary);
   background-color: transparent;
-  color: var(--clr-light-1000);
+  color: var(--clr-light-100);
   resize: none;
 }
 
@@ -389,7 +417,7 @@ h5,h6 {
 .input-btn-ennoia {
   max-width: 512px;
   background-color: var(--clr-primary);
-  border-radius: 100px;
+  border-radius: 5px;
   padding: 12px 0;
   border: 0;
   transition: 0.25s;
