@@ -32,7 +32,6 @@
                     <li class="nav-item">
                         <a class="nav-link ff-jetbrains text-white" href="{{ url('/blog') }}">Blog</a>
                     </li>
-                </ul>
                     <li class="nav-item">
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
                     </li>
@@ -40,12 +39,12 @@
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/servicios') }}">Servicios</a>
                     </li>
                     @auth
-
+    
                     <li class="nav-item">
                         <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/mi-perfil') }}">Mi perfil</a>
                     </li>
                     @endauth
-
+    
                     @auth
                         @if (auth()->user()->rol == 'admin')
                         <li class="nav-item dropdown">
