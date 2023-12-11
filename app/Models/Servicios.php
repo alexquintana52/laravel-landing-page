@@ -15,17 +15,25 @@ class Servicios extends Model
         'nombre',
         'descripcion',
         'img',
+<<<<<<< HEAD
         'descripcion_img',
         'precio'
 
+=======
+        'descripcion_img'
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
     ];
 
     public static $reglas = [
         'nombre' => 'required|min : 5|max : 100',
         'descripcion' => 'required|min : 5|max : 1000',
         'img' => '|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+<<<<<<< HEAD
         'descripcion_img' => 'required|min : 5|max : 1000',
         'precio' => 'required|numeric'
+=======
+        'descripcion_img' => 'required|min : 5|max : 1000'
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
     ];
 
     public static $mensajesdeError = [
@@ -40,7 +48,12 @@ class Servicios extends Model
         'img.max' => 'El campo imagen debe tener como maximo 2048 caracteres',
         'descripcion_img.required' => 'El campo descripcion de la imagen es obligatorio',
         'descripcion_img.min' => 'El campo descripcion de la imagen debe tener al menos 5 caracteres',
+<<<<<<< HEAD
         'descripcion_img.max' => 'El campo descripcion de la imagen debe tener como maximo 1000 caracteres',
         'precio.required' => 'El campo precio es obligatorio',
+=======
+        'descripcion_img.max' => 'El campo descripcion de la imagen debe tener como maximo 1000 caracteres'
+
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
     ];
 }

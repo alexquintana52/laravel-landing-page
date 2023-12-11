@@ -13,6 +13,7 @@ class UsersController extends Controller
     public function show()
     {
         $id = Auth::id();
+<<<<<<< HEAD
         $user = User::findOrFail($id);
         $pagos = Pagos::where('user_id', $id)->get();
         $servicio = Pagos::where('servicio_id', $id)->first();
@@ -75,5 +76,12 @@ class UsersController extends Controller
         ->with('status.message', 'El usuario <b>'. e($user->nombre) .'</b> fue actualizado con éxito');
 }
 
+=======
+        return view('users.show',[
+            'user' => User::findOrFail($id)
+        ]);
+    }
+
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 
 }

@@ -162,15 +162,19 @@ route::post('/admin/servicios/{id}/editar',
 )->whereNumber('id')
 ->middleware('auth');
 
+<<<<<<< HEAD
 route::get('/admin/estadisticas',
     [\App\Http\Controllers\EstadisticasController::class, 'index']
 )->whereNumber('id')
 ->middleware('auth');
 
+=======
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 Route::get('/servicios',
     [\App\Http\Controllers\ServiciosController::class, 'index']
 );
 
+<<<<<<< HEAD
 //!mercadoPagoController se encarga de las vistas de mercadoPago
 Route::get('/pagoServicio/{id}',
     [\App\Http\Controllers\MercadoPagoController::class, 'pagoServicio']
@@ -188,6 +192,8 @@ Route::get('/pagoPendiente',
 Route::get('/pagoRechazado',
     [\App\Http\Controllers\MercadoPagoController::class, 'pagoRechazado']
 );
+=======
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 
 //!adminUsuariosController se encarga de las vistas del adminUsuarios
 
@@ -200,6 +206,7 @@ Route::get('mi-perfil',
     [\App\Http\Controllers\UsersController::class, 'show']
 )->middleware('auth');
 
+<<<<<<< HEAD
 Route::get('mi-perfil/{id}/editar-datos',
     [\App\Http\Controllers\UsersController::class, 'edit']
 )->whereNumber('id')
@@ -210,6 +217,8 @@ Route::post('mi-perfil/{id}/editar-datos',
 )->whereNumber('id')
 ->middleware('auth');
 
+=======
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 Route::get('/registrarse',
     [\App\Http\Controllers\AdminUsersController::class, 'createUser']
 );
@@ -227,6 +236,7 @@ Route::post('/servicios',
     [\App\Http\Controllers\AdminUsersController::class, 'processEditUser']
 )->whereNumber('id')
 ->middleware('auth');;
+<<<<<<< HEAD
 
 Route::get('/servicios/{id}/cancelar-servicio',
     [\App\Http\Controllers\UsersController::class, 'cancelarServicio']
@@ -237,3 +247,5 @@ Route::post('/servicios/{id}/cancelar-servicio',
     [\App\Http\Controllers\UsersController::class, 'cancelarServicioAction']
 )->whereNumber('id')
 ->middleware('auth');
+=======
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5

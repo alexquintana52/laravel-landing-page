@@ -27,11 +27,16 @@
                     <h2 class="h4 py-2 card-title fw-bold text-ennoia">{{ $servicio->nombre }}</h2>
                     <p class="card-text">{{ $servicio->descripcion }}</p>
                 </div>
+<<<<<<< HEAD
                 <div class="card-footer text-center">
                     <p class="py-2 card-title fw-bold text-ennoia h2">Precio: ${{ $servicio->precio }}</p>
                 </div>
                 @auth
                 <div class="container my-2">
+=======
+                @auth
+                <div class="container my-5">
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
 
                     <form action="{{ url('servicios') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -51,6 +56,7 @@
                                 </p>
                             @enderror
                         </div>
+<<<<<<< HEAD
                         <div class="text-center">
                             @if($user->servicio_id == $servicio->servicio_id )
                             <button class="btn-ennoia d-inline-block mb-3 mt-4" type="button">
@@ -70,6 +76,29 @@
 
                     </form>
                 </div>
+=======
+
+                        <button
+                        @if ($user->servicio_id == $servicio->servicio_id)
+                            type="button"
+                        @else
+                            type="submit"
+                        @endif
+
+                        class="btn btn-ennoia-update mt-5 py-2 px-5 mx-auto d-flex justify-content-center">
+                            @if($user->servicio_id == $servicio->servicio_id )
+                                <i class="fa-solid fa-check"></i>
+                            @else
+                                adquirir
+                            @endif
+                        </button>
+                    </form>
+                </div>
+                @else
+                <div class="text-center">
+                    <a href="{{ url('/iniciar-sesion') }}" class="btn-ennoia d-inline-block mb-3 mt-4">Adquirir</a>
+                </div>
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
                 @endauth
 
             </div>

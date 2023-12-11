@@ -8,6 +8,7 @@ use App\Models\Noticia;
 
 class NoticiasController extends Controller
 {
+<<<<<<< HEAD
     public function index(Request $request)
     {
 
@@ -25,6 +26,10 @@ class NoticiasController extends Controller
         /** @var LengthAwarePaginator $consulta  */
         $notiaciasPost = $consulta->paginate(2)->withQueryString();
 
+=======
+    public function index()
+    {
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
         return view('noticias.home', [
             'noticiasPost' => $notiaciasPost,
         ]);

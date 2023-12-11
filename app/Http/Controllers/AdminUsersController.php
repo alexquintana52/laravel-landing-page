@@ -12,8 +12,13 @@ class AdminUsersController extends Controller
 {
     public function admin()
     {
+<<<<<<< HEAD
         return view('admin.adminUsers', [
             'user' => User::paginate(2)
+=======
+        return view('admin.adminUsers',[
+            'user' => User::all()
+>>>>>>> 70a1624e6935e4f9b098435ff3cc3c52dfc745d5
         ]);
     }
 
