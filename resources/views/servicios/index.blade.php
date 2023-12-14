@@ -1,4 +1,8 @@
-
+<?php
+/* echo "<pre>";
+print_r($ultimoPago);
+echo "</pre>"; */
+?>
 @extends('layout.main')
 
 @section('title', 'Ennoia | Perfil')
@@ -18,8 +22,8 @@
         @foreach ($servicios as $servicio)
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card h-100 bg-ennoia-dark-light rounded-3 overflow-hidden text-white
-                @if($user->servicio_id == $servicio->servicio_id )
-                    borde-ennoia
+                @if ($servicio->servicio_id == $ultimoPago->servicio_id)
+                    border border-success
                 @endif
             ">
                 <img src="{{ asset('storage/' . $servicio->img) }}" alt="{{ $servicio->descripcion_img }}" class="card-img-top" alt="...">
@@ -52,13 +56,13 @@
                             @enderror
                         </div>
                         <div class="text-center">
-                            @if($user->servicio_id == $servicio->servicio_id )
+                            @if($servicio->servicio_id == $ultimoPago->servicio_id)
                             <button class="btn-ennoia d-inline-block mb-3 mt-4" type="button">
                                 <i class="fa-solid fa-check"></i>
                             </button>
                             @else
                                 <a href="{{ url('/pagoServicio/'. $servicio->servicio_id ) }}" class="btn-ennoia d-inline-block mb-3 mt-4">
-                                    @if($user->servicio_id == $servicio->servicio_id )
+                                    @if($servicio->servicio_id == $ultimoPago->servicio_id )
                                     <i class="fa-solid fa-check"></i>
                                     @else
                                         adquirir
