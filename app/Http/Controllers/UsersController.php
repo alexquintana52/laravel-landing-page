@@ -16,11 +16,14 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $pagos = Pagos::where('user_id', $id)->get();
         $servicio = Pagos::where('servicio_id', $id)->first();
+        $ultimoPago = $pagos->sortByDesc('created_at')->first();
+        $ultimoPagoaprobado = $pagos->where('collection_status', 'approved')->sortByDesc('created_at')->first();
 
         return view('users.show', [
             'servicio' => $servicio, // 'servicio' => 'servicio
-            'pagos' => $pagos,
-            'user' => $user
+            'user' => $user,
+            'ultimoPago' => $ultimoPago,
+            'ultimoAprobado' => $ultimoPagoaprobado,
         ]);
     }
 
@@ -51,29 +54,5 @@ class UsersController extends Controller
         return redirect('/mi-perfil')
         ->with('status.message', 'El usuario <b>'. e($request->nombre) .'</b> fue actualizado con éxito');
     }
-
-    public function cancelarServicio()
-    {
-        $id = Auth::id();
-        return view('users.cancelarServicio',[
-            'user' => User::findOrFail($id)
-        ]);
-    }
-
-    public function cancelarServicioAction(int $id, Request $request)
-    {
-        $data = $request->only('servicio_id');
-
-        $user = User::findOrFail($id);
-
-        // Verificar si el campo servicio_id está presente antes de actualizar
-        if ($request->has('servicio_id')) {
-            $user->update(['servicio_id' => $request->servicio_id]);
-        }
-
-        return redirect('/mi-perfil')
-            ->with('status.message', 'El usuario <b>'. e($user->nombre) .'</b> fue actualizado con éxito');
-    }
-
 
 }

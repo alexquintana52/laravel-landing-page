@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->tinyIncrements("pago_id");
-            $table->string('collection_id', 256);
-            $table->string('collection_status', 256); //estado de la colección
-            $table->string('merchant_order_id', 256);
-            $table->string('payment_type', 256);
-            $table->string('preference_id', 256);
-            $table->string('site_id', 256);
+            $table->string('collection_id', 256)->nullable();
+            $table->string('collection_status', 256)->nullable(); //estado de la colección
+            $table->string('merchant_order_id', 256)->nullable();
+            $table->string('preference_id', 256)->nullable();
+            $table->string('site_id', 256)->nullable();
+            $table->string('payment_type', 256)->nullable();
             $table->timestamps();
         });
     }

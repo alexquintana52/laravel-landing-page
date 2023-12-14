@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pagos', function (Blueprint $table) {
-            $table->unsignedTinyInteger('servicio_id')->after('pago_id');
+            $table->unsignedTinyInteger('servicio_id')->nullable()->after('pago_id');
             $table->foreign('servicio_id')->references('servicio_id')->on('servicios');
         });
     }
