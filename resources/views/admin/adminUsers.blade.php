@@ -1,13 +1,11 @@
 @extends('layout.main')
 
-@section('title', 'Admin | Usuarios')
+@section('title', 'Ennoia | Administrar Usuarios')
 
 @section('content')
 
-    @section('content')
-
+<section class="bg-ennoia text-start align-items-start">
     <div class="container my-5">
-
         <h1 class="mb-5 text-center">Admin Usuarios</h1>
         <table class="table overflow-scroll">
             <thead>
@@ -28,11 +26,11 @@
                         <td class="bg-dark text-white p-3">{{ $dato->rol }}</td>
                         <td class="bg-dark text-white p-3 text-center">
                             @if (isset($dato->servicosPorUsuario->nombre))
-                                    <span class="badge bg-success px-4 py-2">
+                                    <span class="badge bg-lime text-dark fw-semibold px-4 py-2">
                                         {{$dato->servicosPorUsuario->nombre }}
                                     </span>
                             @else
-                                <span class="badge bg-danger px-4 py-2">
+                                <span class="badge bg-danger fw-semibold px-4 py-2">
                                     No tiene servicios asociados
                                 </span>
                             @endif
@@ -44,5 +42,6 @@
 
         {{ $user->links()}}
     </div>
+</section>
 
 @endsection

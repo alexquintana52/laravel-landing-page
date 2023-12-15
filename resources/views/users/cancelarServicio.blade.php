@@ -14,16 +14,13 @@ use illuminate\database\eloquent\Collection;
 <section class="container py-5 login-section">
     <h1 class="h4 py-2 ">Cancelar suscripción</h1>
     <p class="h4 pb-2">
-        Hola <b class="text-success">{{$user->name}}</b>, estás a un paso de cancelar tu suscripción. </p>
+        Hola <b class="text-success">{{$user->name}}</b>, estás a un paso de cancelar tu suscripción.</p>
     <p>
-        para cancelar la suscripción preciona confirmar   .
+        Para cancelar la suscripción preciona confirmar.
     </p>
-
-
 
     <form action="{{ url('/servicios/'. $user->id .'/cancelar-servicio') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
         <div class="mb-3 visually-hidden">
             <label for="servicio_id" class="form-label">servicio_id</label>
             <input type="text" id="servicio_id" name="servicio_id"
@@ -50,10 +47,7 @@ use illuminate\database\eloquent\Collection;
             @enderror
         </div>
 
-
-
         <button type="submit" class="btn btn-danger mt-5 py-2 px-5 mx-auto d-flex justify-content-center">Confirmar</button>
-
     </form>
 </section>
 @endsection

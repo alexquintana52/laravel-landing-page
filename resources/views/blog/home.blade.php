@@ -15,25 +15,35 @@
         </div>
     </section>
 
-    <h2 class="container my-5 text-center"><span class="text-ennoia">|</span> Posteos Recientes</h2>
-
     <section class="container my-5">
-        <div class="pb-4">
+        {{-- <div class="pb-4">
             <form action="{{ url('/blog') }}" method="GET" >
                 <!-- Search form -->
                 <label for="titulo"></label>
                 <input class="form-control" type="text" name="titulo" placeholder="Search" aria-label="Search">
             </form>
+        </div> --}}
+        <div class="mb-5 row gy-4 align-items-center">
+            <div class="col-12 col-md-6">
+                <h2 class="text-center text-md-start"><span class="text-ennoia">|</span> Posteos Recientes</h2>
+            </div>
+            <div class="col-12 col-md-6">
+                <form action="{{ url('/blog') }}" method="GET">
+                    <!-- Search form -->
+                    <label class="d-none" for="titulo"></label>
+                    <input class="form-control input-ennoia-2" autocomplete="off" type="text" name="titulo" placeholder="Buscar posteo" aria-label="Search">
+                </form>
+            </div>
         </div>
         <div class="row gy-4">
 
             @foreach ($blogPost as $posteo)
                 <div class="col-12 col-md-6 col-lg-4">
                     <a href="{{ url('/blog/' . $posteo->id) }}">
-                        <div class="card bg-ennoia-dark-2 rounded-4 p-3 overflow-hidden text-white blog-card">
-                            <img src="{{ url('/storage/' . $posteo->img) }}" class="rounded-3 card-img-top" alt="...">
+                        <div class="card bg-ennoia-dark-2 rounded-4 p-3 overflow-hidden text-white blog-card h-100">
+                            <img src="{{ url('/storage/' . $posteo->img) }}" class="rounded-3 card-img-top object-fit-cover h-100" alt="{{ $posteo->descripcion_img }}">
                             <div class="card-body text-left px-0">
-                                <h2 class="h4 py-2 card-title fw-bold">{{ $posteo->titulo }}</h2>
+                                <h2 class="h4 card-title card-title-clamp fw-bold">{{ $posteo->titulo }}</h2>
                                 <div class="d-flex justify-content-between">
                                     <small class="text-ennoia">{{ $posteo->categoria_blog->nombre }}</small>
                                     <small class="text-ennoia">{{ $posteo->fecha }}</small>
