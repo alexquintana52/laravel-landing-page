@@ -46,8 +46,8 @@
                         aparentemente complicados.</p>
                 </div>
                 <div class="col-12 col-lg-6">
-                    <p>Fue con este desafío en mente que elegimos el nombre <strong class="text-ennoia">'Ennoia'</strong>
-                        para nuestra aplicación. La palabra 'Ennoia' proviene del griego antiguo y se traduce como
+                    <p>Fue con este desafío en mente que elegimos el nombre <strong class="text-ennoia">ENNOIA</strong>
+                        para nuestra aplicación. La palabra ennoia proviene del griego antiguo y se traduce como
                         'pensamiento', 'idea' o 'concepto'. Esta elección no fue accidental, sino que refleja nuestra misión
                         y compromiso de hacer que la tecnología sea más accesible y comprensible para todos, y lo hacemos a
                         través del juego.</p>

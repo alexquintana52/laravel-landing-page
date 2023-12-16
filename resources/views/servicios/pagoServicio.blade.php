@@ -13,7 +13,7 @@ use MercadoPago\Item;
 @section('content')
 
 <section class="container py-5 login-section">
-    <h1 class="h4 py-2 ">Servicios </h1>
+    <h1 class="h4 py-2 ">Servicios</h1>
 
     <div class="row gy-5 ">
         <div class="col-12 ">

@@ -10,7 +10,7 @@
 			<div class="col-12 col-lg-8">
 				<h1 class="fw-bold m-0 text-ennoia mb-3">Bienvenido a Ennoia</h1>
         <p class="mb-4">Vivimos en una era en la que la tecnología es una <b>parte fundamental</b> de nuestras vidas. En <b>Ennoia</b>, entendemos que no todos están al tanto de los <b>avances tecnológicos</b>, ya sea porque están explorando otras áreas o porque simplemente no se han adentrado en este <b>fascinante mundo.</b> Es por eso que estamos aquí para que te adaptes en este <b>hermoso mundo de la era digital.</b></p>
-				<a href="{{ url('/nosotros') }}" class="btn-ennoia mt-2 btn-sm">
+				<a href="{{ url('/nosotros') }}" class="btn-ennoia mt-2">
 					Saber Más
 				</a>
 			</div>
@@ -52,18 +52,18 @@
   </div>
 </section>
 
-<section class="d-flex align-items-center my-5 pt-5">
-  <div class="container">
-    <div class="bg-ennoia-dark-2 py-5 px-4 p-md-5 rounded-3 home-bg-img">
+<section class="my-5 pt-5">
+  <div class="container overflow-hidden">
+    <div class="bg-ennoia-dark-2 p-md-5 rounded-3 home-bg-img">
       <div class="row">
-        <div class="col-12 col-md-9 col-lg-6 ">
+        <div class="col-12 col-md-9 col-lg-6">
           <h2 class="fw-bold text-ennoia m-0">Seguí las novedades del Mundo Tecnológico</h2>
           <p class="mt-4 mb-5"><strong>¡Mantente al tanto de las últimas novedades en el mundo tecnológico!</strong> Aquí encontrarás la información más relevante y actualizada sobre los avances tecnológicos que están transformando nuestro mundo. Explora las tendencias, innovaciones y descubrimientos más recientes en la industria de la era digital.</p>
           <a href="{{ url('/blog') }}" class="btn-ennoia mt-2 btn-sm">
             Ir al blog
           </a>
         </div>
-        <div class="col-12 col-lg-6 text-center text-lg-end">
+        <div class="col-12 col-md-3 col-lg-6 text-center text-lg-end">
           <img src="/img/codi_lentes.png" alt="">
         </div>
       </div>
