@@ -22,7 +22,6 @@ class UsersSeeder extends Seeder
                 'rol'=>'admin',
                 'created_at'=>'2023-12-11 17:39:01',
                 'updated_at'=>now(),
-                'servicio_id'=>"1"
             ],
             [
                 'id'=>2,
@@ -32,7 +31,6 @@ class UsersSeeder extends Seeder
                 'rol'=>'admin',
                 'created_at'=>"2021-09-01 00:00:00",
                 'updated_at'=>now(),
-                'servicio_id'=>"3"
             ],
             [
                 'id'=>3,
@@ -42,7 +40,6 @@ class UsersSeeder extends Seeder
                 'rol'=>'admin',
                 'created_at'=>'2023-01-11 17:39:01',
                 'updated_at'=>now(),
-                'servicio_id'=>"3"
             ],
             [
                 'id'=>4,
@@ -52,7 +49,6 @@ class UsersSeeder extends Seeder
                 'rol'=>'user',
                 'created_at'=>'2023-07-11 17:39:01',
                 'updated_at'=>now(),
-                'servicio_id'=>"1"
             ],
         ]);
     }

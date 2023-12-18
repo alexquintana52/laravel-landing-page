@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Pagos;
 use Illuminate\Http\Request;
 use App\Models\Servicios;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use MercadoPago\Client\Preference\PreferenceClient as PreferencePreferenceClient;
 use MercadoPago\MercadoPagoConfig;
 use MercadoPago\Client\Preference\PreferenceClient; // Add this line to import PreferenceClient
@@ -73,6 +75,25 @@ class MercadoPagoController extends Controller
             ->with('status.message', 'El pago fue realizado con éxito');
     }
 
+    public function AddnewService(Request $request )
+    {
+        $user = auth()->user();
+        $id_user = $user->id;
+        Pagos::create([
+            'collection_id' => 'NULL',
+            'user_id' => $id_user,
+            'servicio_id' => $request->servicio_id,
+            'collection_status' => 'pending',
+            'merchant_order_id' => 'NULL',
+            'preference_id' => 'NULL',
+            'site_id' => 'NULL',
+            'payment_type' => 'NULL',
+            // Agrega aquí los demás campos que desees guardar
+        ]);
+
+        return redirect('/pago')
+        ->with('status.message', 'El pago fue realizado con éxito');
+    }
 
     public function vistaPagoRealizado(Request $request)
     {
@@ -80,18 +101,45 @@ class MercadoPagoController extends Controller
         if (auth()->check()) {
             $user = auth()->user();
 
-            // Guardar los datos en la base de datos
-            Pagos::create([
-                'collection_id' => $request->query('collection_id'),
-                'user_id' => $user->id,
-                'servicio_id' => $user->servicio_id,
-                'collection_status' => $request->query('collection_status'),
-                'merchant_order_id' => $request->query('merchant_order_id'),
-                'preference_id' => $request->query('preference_id'),
-                'site_id' => $request->query('site_id'),
-                'payment_type' => $request->query('payment_type'),
-                // Agrega aquí los demás campos que desees guardar
-            ]);
+            // Obtener el último pago del usuario
+            $ultimoPago = Pagos::where('user_id', $user->id)->latest()->first();
+
+            if ($ultimoPago) {
+                //dd($ultimoPago); // Verifica si el objeto $ultimoPago se recupera correctamente
+
+                // Actualizar los datos del último pago
+                $dataToUpdate = [];
+
+                if ($request->filled('collection_id')) {
+                    $dataToUpdate['collection_id'] = $request->query('collection_id');
+                }
+
+                if ($request->filled('collection_status')) {
+                    $dataToUpdate['collection_status'] = $request->query('collection_status');
+                }
+
+                if ($request->filled('merchant_order_id')) {
+                    $dataToUpdate['merchant_order_id'] = $request->query('merchant_order_id');
+                }
+
+                if ($request->filled('preference_id')) {
+                    $dataToUpdate['preference_id'] = $request->query('preference_id');
+                }
+
+                if ($request->filled('site_id')) {
+                    $dataToUpdate['site_id'] = $request->query('site_id');
+                }
+
+                if ($request->filled('payment_type')) {
+                    $dataToUpdate['payment_type'] = $request->query('payment_type');
+                }
+
+                // Agrega aquí los demás campos que desees actualizar
+
+                //dd($dataToUpdate); // Verifica si los datos a actualizar son correctos
+
+                $ultimoPago->update($dataToUpdate);
+            }
 
             // Resto del código para cargar la vista
             return view('servicios.vistaPagoRealizado', [
@@ -100,10 +148,9 @@ class MercadoPagoController extends Controller
                 'Resultado' => $request
             ]);
         } else {
-            return redirect('/login');
+            return redirect('/iniciar-sesion');
         }
     }
-
 
     public function pagoPendiente(Request $request)
     {
@@ -121,5 +168,33 @@ class MercadoPagoController extends Controller
             'user' => auth()->user(),
             'Resultado' => $request
         ]);
+    }
+
+    public function cancelarServicio()
+    {
+        $id = Auth::id();
+        return view('users.cancelarServicio',[
+            'user' => User::findOrFail($id),
+            'pagos' => Pagos::where('user_id', $id)->get()
+        ]);
+    }
+
+    public function cancelarServicioAction(int $id, Request $request)
+    {
+        $user = auth()->user();
+        $id_user = $user->id;
+        Pagos::create([
+            'collection_id' => 'NULL',
+            'user_id' => $id_user,
+            'collection_status' => 'pending',
+            'merchant_order_id' => 'NULL',
+            'preference_id' => 'NULL',
+            'site_id' => 'NULL',
+            'payment_type' => 'NULL',
+            // Agrega aquí los demás campos que desees guardar
+        ]);
+
+        return redirect('/mi-perfil')
+        ->with('status.message', 'La cancelación fue realizada con éxito');
     }
 }

@@ -218,22 +218,19 @@ Route::post('/registrarse',
     [\App\Http\Controllers\AdminUsersController::class, 'processUser']
 );
 
-Route::get('/servicios',
-    [\App\Http\Controllers\AdminUsersController::class, 'editUser']
+
+//AddnewService se encarga de crear un nuevo servicio
+Route::post('/servicios',
+    [\App\Http\Controllers\MercadoPagoController::class, 'AddnewService']
 )->whereNumber('id')
 ->middleware('auth');
 
-Route::post('/servicios',
-    [\App\Http\Controllers\AdminUsersController::class, 'processEditUser']
-)->whereNumber('id')
-->middleware('auth');;
-
 Route::get('/servicios/{id}/cancelar-servicio',
-    [\App\Http\Controllers\UsersController::class, 'cancelarServicio']
+    [\App\Http\Controllers\MercadoPagoController::class, 'cancelarServicio']
 )->whereNumber('id')
 ->middleware('auth');
 
 Route::post('/servicios/{id}/cancelar-servicio',
-    [\App\Http\Controllers\UsersController::class, 'cancelarServicioAction']
+    [\App\Http\Controllers\MercadoPagoController::class, 'cancelarServicioAction']
 )->whereNumber('id')
 ->middleware('auth');
