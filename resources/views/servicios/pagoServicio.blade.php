@@ -52,7 +52,15 @@ use MercadoPago\Item;
                                 class="my-2 py-2 px-5 mx-auto d-flex justify-content-center"
                                 id="venta"
                                 >
-                            </div>
+                                </div>
+                                {{-- <button
+                                    type="submit"
+                                    class="btn btn-ennoia btn-lg my-2 py-2 px-5 mx-auto d-flex justify-content-center"
+                                    id="submit"
+                                    >
+                                    Pagar
+                                </button> --}}
+
                         </form>
                     </div>
                 </div>

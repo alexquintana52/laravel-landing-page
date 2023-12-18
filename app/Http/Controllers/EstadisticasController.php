@@ -14,8 +14,8 @@ class EstadisticasController extends Controller
     {
         $users = User::all();
         $totalUsers = User::count();
-        $pagos = Pagos::count();
-        $UsuariosConSuscripcion = User::whereNotNull('servicio_id')->count();
+        $pagos = Pagos::whereNotNull('servicio_id')->count();
+        $UsuariosConSuscripcion = Pagos::whereNotNull('servicio_id')->distinct('user_id')->count();
 
         // Obtener usuarios creados por mes
         $usersByMonth = User::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
