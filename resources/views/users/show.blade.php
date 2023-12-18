@@ -9,36 +9,29 @@ echo "</pre>";
 ?>
 @extends('layout.main')
 
-@section('title', ' mi perfil')
+@section('title', 'Ennoia | Mi Perfil')
 
 @section('content')
 
-
-
-<section class="container my-5">
-    <div class="row">
-        <h1 >
-            Mi perfil
-        </h1>
-        <div class="col-md-3">
-
-            <div class="my-4">
-                <h2>
-                    Datos
-                </h2>
-                <p>
-                    {{ $user->name }}
-                </p>
-                <p>
-                    {{ $user->email }}
-                </p>
-
-                <a href="/mi-perfil/{{$user->id}}/editar-datos" class="d-inline-block btn-ennoia my-4 text-center">
-                    modificar datos
-                </a>
+<section class="bg-ennoia text-start min-vh-100 align-items-start">
+    <div class="container my-5">
+        <h1 class="text-center">Mi perfil</h1>
+        <div class="row justify-content-center text-center">
+            <div class="col-12">
+                <div class="my-4">
+                    <p class="mb-2 h3 text-ennoia fw-semibold">
+                        {{ $user->name }}
+                    </p>
+                    <p>
+                        {{ $user->email }}
+                    </p>
+    
+                    <a href="/mi-perfil/{{$user->id}}/editar-datos" class="d-inline-block btn-ennoia my-4 text-center">
+                        Editar Datos
+                    </a>
+                </div>
             </div>
         </div>
-
         <div class="my-4 pt-4 col-md-4 {{ $ultimoPago && $ultimoPago->collection_status !== 'approved' ? ' border border-danger' : 'border border-success' }}">
             <h2>
                 Suscripción actual
@@ -160,7 +153,6 @@ echo "</pre>";
         </div>
 
     </div>
-
 </section>
 
 @endsection

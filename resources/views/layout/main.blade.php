@@ -21,34 +21,34 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse text-center justify-content-center align-items-center pb-3 pb-lg-0" id="navbarSupportedContent">
-                <ul class="navbar-nav pt-4 py-lg-0 mb-lg-0 mx-auto ms-lg-5">
+            <div class="collapse navbar-collapse text-center justify-content-end align-items-center pb-3 pb-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav pt-4 py-lg-0 mb-lg-0 ms-lg-5 ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains text-white" href="{{ url('/') }}">Inicio</a>
+                        <a class="nav-link text-white" href="{{ url('/') }}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains text-white" href="{{ url('/nosotros') }}">Nosotros</a>
+                        <a class="nav-link text-white" href="{{ url('/nosotros') }}">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains text-white" href="{{ url('/blog') }}">Blog</a>
+                        <a class="nav-link text-white" href="{{ url('/blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
+                        <a class="nav-link mb-2 mb-lg-0 text-white" href="{{ url('/noticias') }}">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/servicios') }}">Servicios</a>
+                        <a class="nav-link mb-2 mb-lg-0 text-white" href="{{ url('/servicios') }}">Servicios</a>
                     </li>
                     @auth
-
+    
                     <li class="nav-item">
-                        <a class="nav-link ff-jetbrains mb-2 mb-lg-0 text-white" href="{{ url('/mi-perfil') }}">Mi perfil</a>
+                        <a class="nav-link mb-2 mb-lg-0 text-white" href="{{ url('/mi-perfil') }}">Mi perfil</a>
                     </li>
                     @endauth
-
+    
                     @auth
                         @if (auth()->user()->rol == 'admin')
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle ff-jetbrains text-white" href="#" role="button" data-bs-toggle="dropdown" >
+                            <a class="nav-link dropdown-toggle mb-2 mb-lg-0 text-white" href="#" role="button" data-bs-toggle="dropdown" >
                                 Administración
                             </a>
                             <ul class="dropdown-menu">
@@ -66,19 +66,19 @@
                     <div class="nav-item">
                         <form action="{{ url('/cerrar-sesion')}}" method="POST">
                             @csrf
-                            <button class="btn btn-ennoia-outline me-0 me-lg-2">
+                            <button class="btn btn-ennoia-outline mb-2 mb-lg-0 ms-0 ms-lg-2">
                                 Cerrar Sesión
                             </button>
                         </form>
                     </div>
                 @else
                     <div>
-                        <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ url('/registrarse')}}">
+                        <a class="btn-ennoia-outline mb-4 mt-2 mb-lg-0 mt-lg-0 mx-auto ms-lg-2 me-lg-3 " href="{{ url('/registrarse')}}">
                         Registrarse
                         </a>
                     </div>
                     <div>
-                        <a class="btn-ennoia-outline me-0 me-lg-2" href="{{ url('/iniciar-sesion')}}">
+                        <a class="btn-ennoia-outline mb-3 mb-lg-0" href="{{ url('/iniciar-sesion')}}">
                         Iniciar Sesión
                         </a>
                     </div>

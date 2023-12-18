@@ -5,7 +5,7 @@ echo "</pre>"; */
 ?>
 @extends('layout.main')
 
-@section('title', 'Ennoia | Perfil')
+@section('title', 'Ennoia | Servicios')
 
 @section('content')
 
@@ -45,8 +45,9 @@ echo "</pre>"; */
                             class="form-control input-admin @error('titulo') is-invalid @enderror"
                                 value="{{ $servicio->servicio_id }}"
                                 @error('servicio_id')
-                                aria-describedby="error-title"
-                                aria-invalid="true"
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
                                 @enderror
                                 >
                             @error('servicio_id')
@@ -63,23 +64,19 @@ echo "</pre>"; */
                             @else
                                 <a href="{{ url('/pagoServicio/'. $servicio->servicio_id ) }}" class="btn-ennoia d-inline-block mb-3 mt-4">
                                     @if($servicio->servicio_id == $ultimoPago->servicio_id )
-                                    <i class="fa-solid fa-check"></i>
+                                        <i class="fa-solid fa-check"></i>
                                     @else
-                                        adquirir
+                                        Adquirir
                                     @endif
                                 </a>
-                            @endif
-                        </div>
-
-
-                    </form>
+                            </div>
+                        </form>
+                    </div>
+                    @endauth
                 </div>
-                @endauth
-
             </div>
+            @endforeach
         </div>
-        @endforeach
-
     </div>
 </section>
 

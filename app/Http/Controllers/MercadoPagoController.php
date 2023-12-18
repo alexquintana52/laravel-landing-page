@@ -32,13 +32,13 @@ class MercadoPagoController extends Controller
         $client = new PreferenceClient();
 
         $preference = $client->create([
-            "items"=> array(
-              $items
+            "items" => array(
+                $items
             ),
-            "back_urls"=> array(
-              "success"=> "http://localhost:8000/pagoRealizado",
-              "failure"=> "http://localhost:8000/pagoRechazado",
-              "pending"=> "http://localhost:8000/pagoPendiente"
+            "back_urls" => array(
+                "success" => "http://localhost:8000/pagoRealizado",
+                "failure" => "http://localhost:8000/pagoRechazado",
+                "pending" => "http://localhost:8000/pagoPendiente"
             ),
         ]);
 
@@ -56,7 +56,7 @@ class MercadoPagoController extends Controller
 
     public function pagoRealizado(Request $request)
     {
-        return view('servicios.pagoRealizado',[
+        return view('servicios.pagoRealizado', [
             'servicios' => Servicios::all(),
             'user' => auth()->user(),
             'resultado' => $request
@@ -65,14 +65,14 @@ class MercadoPagoController extends Controller
 
     public function processPagoRealizado(Request $request)
     {
-        $data=$request->except('_token');
+        $data = $request->except('_token');
 
-        $request -> validate( Pagos::$reglas, Pagos::$mensajesdeError );
+        $request->validate(Pagos::$reglas, Pagos::$mensajesdeError);
 
         Pagos::create($data);
 
         return redirect('/pago')
-        ->with('status.message', 'El pago fue realizado con éxito');
+            ->with('status.message', 'El pago fue realizado con éxito');
     }
 
     public function AddnewService(Request $request )
@@ -154,7 +154,7 @@ class MercadoPagoController extends Controller
 
     public function pagoPendiente(Request $request)
     {
-        return view('servicios.pagoPendiente',[
+        return view('servicios.pagoPendiente', [
             'servicios' => Servicios::all(),
             'user' => auth()->user(),
             'Resultado' => $request
@@ -163,7 +163,7 @@ class MercadoPagoController extends Controller
 
     public function pagoRechazado(Request $request)
     {
-        return view('servicios.pagoRechazado',[
+        return view('servicios.pagoRechazado', [
             'servicios' => Servicios::all(),
             'user' => auth()->user(),
             'Resultado' => $request
@@ -198,4 +198,3 @@ class MercadoPagoController extends Controller
         ->with('status.message', 'La cancelación fue realizada con éxito');
     }
 }
-
